@@ -130,6 +130,11 @@ if( !$vendor_id ) {
 	return;
 }
 
+if( !wcfm_is_vendor( $vendor_id ) ) {
+	wcfm_restriction_message_show( "Invalid Vendor" );
+	return;
+}
+
 $vendor_capability_options = (array) apply_filters( 'wcfmgs_user_capability', get_option( 'wcfm_capability_options' ), $vendor_id );
 
 if( apply_filters( 'wcfm_is_allow_email_verification', true ) ) {

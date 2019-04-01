@@ -40,6 +40,11 @@ if( wcfm_is_vendor() ) {
 
 $theorder = wc_get_order( $order_id );
 
+if( !is_a( $theorder, 'WC_Order' ) ) {
+	wcfm_restriction_message_show( "Invalid Order" );
+	return;
+}
+
 if( !$theorder ) return;
 
 $post = get_post($order_id);

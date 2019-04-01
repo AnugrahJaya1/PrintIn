@@ -26,7 +26,7 @@ if( !empty( $wcfmmp_shipping['_wcfmmp_user_shipping_type'] ) && $wcfmmp_shipping
 			$shipping_methods = WCFMmp_Shipping_Zone::get_shipping_methods( $zone->get_id(), $store_id );
 			
 			if ( !empty( $shipping_methods ) ) {
-				echo '<div style="margin-bottom:40px;"><div class="wcfmmp_shipment_rules_display"><span class="wcfmmp-store-shipping-rule" style="text-decoration:underline;">'. __( $zone->get_zone_name() . ' Shipping Rules:' , 'wc-multivendor-marketplace') . '</span></div><br />'; 
+				echo '<div style="margin-bottom:40px;"><div class="wcfmmp_shipment_rules_display"><span class="wcfmmp-store-shipping-rule" style="text-decoration:underline;">'. $zone->get_zone_name() . ' ' . __( 'Shipping Rules:' , 'wc-multivendor-marketplace') . '</span></div><br />'; 
 				
 				foreach ( $shipping_methods as $key => $method ) {
           $tax_rate = ( $method['settings']['tax_status'] == 'none' ) ? false : '';

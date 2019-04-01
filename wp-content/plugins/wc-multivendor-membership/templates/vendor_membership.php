@@ -81,8 +81,8 @@ $wcfm_membership_table_plan_count = 0;
 						foreach( $membership_feature_lists as $membership_feature_list ) {
 							?>
 							<div class="wcfm_membership_element wcfm_membership_feature_element">
-								<span class="wcfm_membership_element_content"><?php _e( $membership_feature_list['feature'], 'wc-multivendor-membership' ); ?>
-								  <?php if( isset( $membership_feature_list['help'] ) && !empty( $membership_feature_list['help'] ) ) { ?>&nbsp;<i class="wcfmfa fa-question-circle fa-question-circle-o text_tip" data-tip="<?php _e( $membership_feature_list['help'], 'wc-multivendor-membership' ); ?>"></i> <?php } ?>
+								<span class="wcfm_membership_element_content"><?php echo wcfm_removeslashes( __( $membership_feature_list['feature'], 'wc-multivendor-membership' ) ); ?>
+								  <?php if( isset( $membership_feature_list['help'] ) && !empty( $membership_feature_list['help'] ) ) { ?>&nbsp;<i class="wcfmfa fa-question-circle text_tip" data-tip="<?php echo wcfm_removeslashes( __( $membership_feature_list['help'], 'wc-multivendor-membership' ) ); ?>"></i> <?php } ?>
 								</span>
 							</div>
 							<?php
@@ -178,7 +178,10 @@ $wcfm_membership_table_plan_count = 0;
 							foreach( $membership_feature_lists as $membership_feature_list ) {
 								?>
 								<div class="wcfm_membership_element wcfm_membership_feature_element">
-									<span class="wcfm_membership_element_content"><?php _e( $membership_feature_list['feature'], 'wc-multivendor-membership' ); ?></span>
+									<span class="wcfm_membership_element_content">
+									  <?php _e( $membership_feature_list['feature'], 'wc-multivendor-membership' ); ?>
+									  <?php if( isset( $membership_feature_list['help'] ) && !empty( $membership_feature_list['help'] ) ) { ?>&nbsp;<i class="wcfmfa fa-question-circle text_tip" data-tip="<?php _e( $membership_feature_list['help'], 'wc-multivendor-membership' ); ?>"></i> <?php } ?>
+									</span>
 								</div>
 								<?php
 							}

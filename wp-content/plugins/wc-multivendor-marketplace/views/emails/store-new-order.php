@@ -425,25 +425,31 @@ table.wcfm-order-total-table td{border-left:0px;}
 }
 ?>
 
-<table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
-	<tr>
-		<?php if( $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $vendor_id, 'view_billing_details' ) ) { ?>
-			<td style="text-align:<?php echo $text_align; ?>; border:0; padding:0 2px;" valign="top" width="50%">
-				<h2><?php _e( 'Billing address', 'wc-multivendor-marketplace' ); ?></h2>
-				<address class="address">
-					<p><?php echo $order->get_formatted_billing_address(); ?></p>
-				</address>
-			</td>
-		<?php } ?>
-		
-		<?php if( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) && $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $vendor_id, 'view_shipping_details' ) ) { ?>
-			<td style="text-align:<?php echo $text_align; ?>; padding:0 2px;" valign="top" width="50%">
-				<h2><?php _e( 'Shipping address', 'wc-multivendor-marketplace' ); ?></h2>
+<?php
+if( apply_filters( 'wcfm_is_allow_wc_default_email_customer_details', false ) ) {
+	do_action( 'woocommerce_email_customer_details', $order, 0, 0, $email );
+} else {
+	?>
+	<table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
+		<tr>
+			<?php if( $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $vendor_id, 'view_billing_details' ) ) { ?>
+				<td style="text-align:<?php echo $text_align; ?>; border:0; padding:0 2px;" valign="top" width="50%">
+					<h2><?php _e( 'Billing address', 'wc-multivendor-marketplace' ); ?></h2>
+					<address class="address">
+						<p><?php echo $order->get_formatted_billing_address(); ?></p>
+					</address>
+				</td>
+			<?php } ?>
+			
+			<?php if( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) && $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $vendor_id, 'view_shipping_details' ) ) { ?>
+				<td style="text-align:<?php echo $text_align; ?>; padding:0 2px;" valign="top" width="50%">
+					<h2><?php _e( 'Shipping address', 'wc-multivendor-marketplace' ); ?></h2>
+	
+					<address class="address"><?php echo $shipping; ?></address>
+				</td>
+			<?php } ?>
+		</tr>
+	</table>
+<?php } ?>
 
-				<address class="address"><?php echo $shipping; ?></address>
-			</td>
-		<?php } ?>
-	</tr>
-</table>
-
-<?php do_action('woocommerce_email_footer'); ?>
+<?php do_action( 'woocommerce_email_footer', $email ); ?>

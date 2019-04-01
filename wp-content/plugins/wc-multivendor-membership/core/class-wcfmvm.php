@@ -262,16 +262,16 @@ class WCFMvm {
 																																				 'wcfmvm_field_table_border_color' => array( 'label' => __( 'Table Border Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_border_color_settings', 'default' => '#cccccc', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head, #wcfm-main-contentainer .wcfm_membership_box_body, #wcfm-main-contentainer .wcfm_membership_box_foot', 'style' => 'border-color' ),
 																																				 'wcfmvm_field_table_text_color' => array( 'label' => __( 'Table Text Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_text_color_settings', 'default' => '#111111', 'element' => '#wcfm-main-contentainer .wcfm_membership_boxes', 'style' => 'color' ),
 																																				 'wcfmvm_field_table_bg_color' => array( 'label' => __( 'Table Background Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_bg_color_settings', 'default' => '#ffffff', 'element' => '#wcfm-main-contentainer .wcfm_membership_element:nth-child(odd)', 'style' => 'background-color' ),
-																																				 'wcfmvm_field_table_bg_heighlighter_color' => array( 'label' => __( 'Table Cell Heighlighter Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_bg_heighlighter_color_settings', 'default' => '#afd2cf', 'element' => '#wcfm-main-contentainer .wcfm_membership_element:nth-child(even), #wcfm-main-contentainer .wcfm_membership_box_wrraper .wcfm_membership_box_head .wcfm_membership_featured_top', 'style' => 'background-color' ),
-																																				 'wcfmvm_field_table_head_bg_color' => array( 'label' => __( 'Table Head Background Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_bg_color_settings', 'default' => '#2d4e4c', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head', 'style' => 'background-color' ),
-																																				 'wcfmvm_field_table_head_title_color' => array( 'label' => __( 'Membership Title Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_title_color_settings', 'default' => '#ececec', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_title, #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_title', 'style' => 'color' ),
-																																				 'wcfmvm_field_table_head_price_color' => array( 'label' => __( 'Membership Price Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_price_color_settings', 'default' => '#ececec', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price .amount', 'style' => 'color', 'element2' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price .amount', 'style2' => 'border-color' ),
+																																				 'wcfmvm_field_table_bg_heighlighter_color' => array( 'label' => __( 'Table Cell Heighlighter Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_bg_heighlighter_color_settings', 'default' => '#d3eef6', 'element' => '#wcfm-main-contentainer .wcfm_membership_element:nth-child(even), #wcfm-main-contentainer .wcfm_membership_box_wrraper .wcfm_membership_box_head .wcfm_membership_featured_top', 'style' => 'background-color' ),
+																																				 'wcfmvm_field_table_head_bg_color' => array( 'label' => __( 'Table Head Background Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_bg_color_settings', 'default' => '#17a2b8', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head', 'style' => 'background-color' ),
+																																				 'wcfmvm_field_table_head_title_color' => array( 'label' => __( 'Membership Title Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_title_color_settings', 'default' => '#ffffff', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_title, #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_title', 'style' => 'color' ),
+																																				 'wcfmvm_field_table_head_price_color' => array( 'label' => __( 'Membership Price Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_price_color_settings', 'default' => '#ffffff', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price .amount', 'style' => 'color', 'element2' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price .amount', 'style2' => 'border-color' ),
 																																				 'wcfmvm_field_table_head_price_desc_color' => array( 'label' => __( 'Membership Price Description Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_price_desc_color_settings', 'default' => '#111111', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price_description', 'style' => 'color' ),
-																																				 'wcfmvm_field_table_head_description_color' => array( 'label' => __( 'Membership Description Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_description_color_settings', 'default' => '#C3D9FF', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_description, #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_description', 'style' => 'color' ),
+																																				 'wcfmvm_field_table_head_description_color' => array( 'label' => __( 'Membership Description Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_head_description_color_settings', 'default' => '#ffffff', 'element' => '#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_description, #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_description', 'style' => 'color' ),
 																																				 'wcfmvm_field_button_color' => array( 'label' => __( 'Subscribe Button Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_button_bg_color_settings', 'default' => '#2a3344', 'element' => '.wcfm_membership_subscribe_button_wrapper input.wcfm_submit_button, #wcfm_membership_container input.wcfm_submit_button, #wcfm_membership_container a.wcfm_submit_button', 'style' => 'background-color' ),
 																																				 'wcfmvm_field_button_hover_color' => array( 'label' => __( 'Subscribe Button Hover Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_button_bg_hover_color_settings', 'default' => '#17a2b8', 'element' => '.wcfm_membership_subscribe_button_wrapper input.wcfm_submit_button:hover, #wcfm_membership_container input.wcfm_submit_button:hover, #wcfm_membership_container a.wcfm_submit_button:hover', 'style' => 'background-color' ),
 																																				 'wcfmvm_field_button_bg_color' => array( 'label' => __( 'Subscribe Button Text Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_table_button_color_settings', 'default' => '#ffffff', 'element' => '.wcfm_membership_subscribe_button_wrapper input.wcfm_submit_button, #wcfm_membership_container input.wcfm_submit_button, #wcfm_membership_container a.wcfm_submit_button', 'style' => 'color' ),
-																																				 'wcfmvm_field_preview_plan_bg_color' => array( 'label' => __( 'Preview Box Background Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_preview_plan_color_settings', 'default' => '#6dc7be', 'element' => '#wcfm-main-contentainer .wcfm_membership_review_plan, #wcfm-main-contentainer .wcfm_membership_thankyou_content_wrapper', 'style' => 'background-color' ),
+																																				 'wcfmvm_field_preview_plan_bg_color' => array( 'label' => __( 'Preview Box Background Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_preview_plan_color_settings', 'default' => '#63c2de', 'element' => '#wcfm-main-contentainer .wcfm_membership_review_plan, #wcfm-main-contentainer .wcfm_membership_thankyou_content_wrapper', 'style' => 'background-color' ),
 																																				 'wcfmvm_field_preview_plan_text_color' => array( 'label' => __( 'Preview Box Text Color', 'wc-multivendor-membership' ), 'name' => 'wcfmvm_membership_preview_plan_text_color_settings', 'default' => '#555', 'element' => '#wcfm-main-contentainer .wcfm_membership_review_plan, #wcfm-main-contentainer .wcfm_membership_thankyou_content_wrapper', 'style' => 'color', 'element2' => '#wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_welcome', 'style2' => 'color', 'element3' => '#wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_features, #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_feature, #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_feature_val', 'style3' => 'border-color' ),
 																																			) );
 		
@@ -933,9 +933,9 @@ class WCFMvm {
 						if( !$subscription_welcome_email_content ) {
 							$subscription_welcome_email_content = "Hi {first_name},
 																		<br /><br />
-																		You have successfully subscribed to our membership plan. 
+																		You have successfully registered as a vendor for <b>{site_name}</b>. 
 																		<br /><br />
-																		Your account has been setup and ready to be configured.
+																		Your account has been setup and it is ready to be configured.
 																		<br /><br />
 																		{plan_details}
 																		<br /><br />
@@ -953,7 +953,7 @@ class WCFMvm {
 																						<br /><br />
 																						You have successfully changed membership plan to <b>{membership_plan}</b>. 
 																						<br /><br />
-																						Your account already setup and ready to configure.
+																						Your account already setup and it is ready to be configured.
 																						<br /><br />
 																						{plan_details}
 																						<br /><br />
@@ -969,6 +969,7 @@ class WCFMvm {
 					$subject = apply_filters( 'wcfm_email_subject_wrapper', $subject );
 					$message = str_replace( '{dashboard_url}', '<a href="' . get_wcfm_url() . '">' . __( 'Visit now ...', 'wc-multivendor-membership' ) . '</a>', $subscription_welcome_email_content );
 					$message = str_replace( '{first_name}', $member_user->first_name, $message );
+					$message = str_replace( '{site_name}', get_bloginfo( 'name' ), $message );
 					$message = str_replace( '{plan_details}', $wcfm_plan_details, $message );
 					$message = str_replace( '{membership_plan}', get_the_title( $wcfm_membership ), $message );
 					if( !$wcfm_register_member ) {
@@ -1057,9 +1058,9 @@ class WCFMvm {
 					if( !$registration_email_content ) {
 						$registration_email_content = "Hi {first_name},
 																							<br /><br />
-																							You have successfully registered as a vendor to our marketplace. 
+																							You have successfully registered as a vendor for <b>{site_name}</b>. 
 																							<br /><br />
-																							Your account has been setup and ready to be configured.
+																							Your account has been setup and it is ready to be configured.
 																							<br /><br />
 																							Kindly follow the link below to visit your dashboard and start selling.
 																							<br /><br />
@@ -1072,6 +1073,7 @@ class WCFMvm {
 					$subject = apply_filters( 'wcfm_email_subject_wrapper', $subject );
 					$message = str_replace( '{dashboard_url}', '<a href="' . get_wcfm_url() . '">' . __( 'Visit now ...', 'wc-multivendor-membership' ) . '</a>', $registration_email_content );
 					$message = str_replace( '{first_name}', $member_user->first_name, $message );
+					$message = str_replace( '{site_name}', get_bloginfo( 'name' ), $message );
 					$message = apply_filters( 'wcfm_email_content_wrapper', $message, __( 'Welcome to the store!', 'wc-multivendor-membership' ) );
 					
 					wp_mail( $member_user->user_email, $subject, $message );

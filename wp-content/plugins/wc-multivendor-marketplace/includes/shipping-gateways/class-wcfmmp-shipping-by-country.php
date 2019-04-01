@@ -294,7 +294,7 @@ class WCFMmp_Shipping_By_Country extends WC_Shipping_Method {
 				 }
 				 
 				 if( $wcfmmp_free_shipping_amount && ( $wcfmmp_free_shipping_amount <= $products_total_cost ) ) {
-				 	 return apply_filters( 'wcfmmp_shipping_calculate_amount', 0, $price, $products, $destination_country, $destination_state );
+				 	 return apply_filters( 'wcfmmp_shipping_country_calculate_amount', 0, $price, $products, $destination_country, $destination_state );
 				 }
 
 				 if ( count( $products ) > 1 ) {
@@ -334,6 +334,6 @@ class WCFMmp_Shipping_By_Country extends WC_Shipping_Method {
 			 }
      }
 
-     return apply_filters( 'wcfmmp_shipping_calculate_amount', $amount, $price, $products, $destination_country, $destination_state );
+     return apply_filters( 'wcfmmp_shipping_country_calculate_amount', $amount, $price, $products, $destination_country, $destination_state );
   }
 }

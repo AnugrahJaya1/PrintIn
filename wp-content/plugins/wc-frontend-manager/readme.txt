@@ -7,7 +7,7 @@ Tested up to: 5.1
 WC requires at least: 3.0
 WC tested up to: 3.5.0
 Requires PHP: 5.6
-Stable tag: 5.4.7
+Stable tag: 6.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,8 @@ Experience the best ever WooCommerce Frontend Product Manager. WooCommerce Front
 > Premium addons also add many more feathers into the frontend wing - 
 > [WCFM - Ultimate](https://wclovers.com/product/woocommerce-frontend-manager-ultimate/) - [Overview](https://youtu.be/gitvRdLMTjw) - [Guidelines](https://wclovers.com/blog/why-woocommerce-frontend-manager-ultimate/)
 > [WCFM - Groups & Staffs](https://wclovers.com/product/woocommerce-frontend-manager-groups-staffs/) - [Demo](http://wcfmgs.wcfmdemos.com/my-account/) - [Documentation](https://wclovers.com/knowledgebase/wcfm-groups-staffs/)
-> [WCFM - Delivery](https://wclovers.com/product/woocommerce-frontend-manager-delivery/) - - [Demo](http://wcfmmp.wcfmdemos.com/my-account/) - [Documentation](https://wclovers.com/knowledgebase/wcfm-marketplace-delivery/)
+> [WCFM - Delivery](https://wclovers.com/product/woocommerce-frontend-manager-delivery/) - [Demo](http://wcfmmp.wcfmdemos.com/my-account/) - [Documentation](https://wclovers.com/knowledgebase/wcfm-marketplace-delivery/)
+> [WCFM - Affiliate](https://wclovers.com/product/woocommerce-frontend-manager-affiliate/) - [Documentation](https://docs.wclovers.com/wcfm-affiliate/)
 > [WCFM - Analytics](https://wclovers.com/product/woocommerce-frontend-manager-analytics/) - [Demo](http://wcmp.wcfmdemos.com/my-account/) - [Documentation](https://wclovers.com/knowledgebase/wcfm-analytics/)
 > [WCFM - Product HUB](https://wclovers.com/product/woocommerce-frontend-manager-product-hub/) - [Demo](http://wcmp.wcfmdemos.com/my-account/) - [Documentation](https://wclovers.com/knowledgebase/)
 
@@ -115,6 +116,7 @@ WCFM is now fully compatible with -
 - WP Hide & Security Enhancer
 - SCD – Smart Currency Detector
 - WooCommerce Measurement Price Calculator
+- WooCommerce Advanced Product Labels
 - Fancy Product Designer
 - FooEvents
 
@@ -272,6 +274,15 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WC Ma
 25. WCFM Dashboard - Mobile view
 
 == Changelog ==
+
+= 6.0.0 =
+*Updated - 01/04/2019*
+
+* Feature - WCFM APP compatibility - https://docs.wclovers.com/wcfm-app/
+* Enahnce - WCFM - Affiliate addon compatibility - https://wclovers.com/product/woocommerce-frontend-manager-affiliate/
+* Enahnce - WC Advanced Product Labels compatibility added (WCFM Ultimate require)
+* Fixed   - WCFM Marketplace Add New vendor data save issue resolved
+* Fixed   - Enquiry count not updating issue resolved
 
 = 5.4.7 =
 *Updated - 26/03/2019*
@@ -1854,10 +1865,9 @@ Fully compatible with all major multi-vendor marketplace plugins - <strong>WC Ma
 
 == Upgrade Notice ==
 
-= 5.4.7 =
-* Enahnce - WC Simple Auction "Relist" compatibility added
-* Enahnce - Product Bundle Min/Max extension compatibility added (WCFM - Product HUB require)
-* Enahnce - WCFM Marketplace Vendor "Free shipping coupon" compatibility added
-* Enahnce - WCFM Marketplace Shipping calculation "item cost including tax" option supported
-* Enahnce - Vendor's multiple appointments in single order compatibility added
-* Fixed   - WC Appointment addons save issue resolved
+= 6.0.0 =
+* Feature - WCFM APP compatibility - https://docs.wclovers.com/wcfm-app/
+* Enahnce - WCFM - Affiliate addon compatibility - https://wclovers.com/product/woocommerce-frontend-manager-affiliate/
+* Enahnce - WC Advanced Product Labels compatibility added (WCFM Ultimate require)
+* Fixed   - WCFM Marketplace Add New vendor data save issue resolved
+* Fixed   - Enquiry count not updating issue resolved

@@ -74,8 +74,8 @@ if( ( $is_free != 'yes' ) && empty( $payment_methods ) ) {
 							if( !empty( $features ) && isset( $features[$membership_feature_list['feature']] ) ) $feature_val = $features[$membership_feature_list['feature']];
 							if( !$feature_val ) $feature_val = 'x';
 							?>
-							<div class="wcfm_review_plan_feature"><?php _e( $membership_feature_list['feature'], 'wc-multivendor-membership' ); ?></div>
-							<div class="wcfm_review_plan_feature_val"><?php _e( $feature_val, 'wc-multivendor-membership' ); ?></div>
+							<div class="wcfm_review_plan_feature"><?php echo wcfm_removeslashes( __( $membership_feature_list['feature'], 'wc-multivendor-membership' ) ); ?></div>
+							<div class="wcfm_review_plan_feature_val"><?php echo wcfm_removeslashes( __( $feature_val, 'wc-multivendor-membership' ) ); ?></div>
 							<?php
 						}
 					}

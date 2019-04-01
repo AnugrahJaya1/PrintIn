@@ -208,7 +208,7 @@ class WCFM_Messages_Controller {
 				}
 				
 				// Date
-				$wcfm_messages_json_arr[$index][] = date_i18n( wc_date_format(), strtotime( $wcfm_message->created ) );
+				$wcfm_messages_json_arr[$index][] = date_i18n( wc_date_format() . ' ' . wc_time_format() , strtotime( $wcfm_message->created ) );
 				
 				// Action
 				$actions = '&ndash;';

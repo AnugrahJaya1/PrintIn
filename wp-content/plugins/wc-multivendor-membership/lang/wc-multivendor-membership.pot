@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-14 15:39+0000\n"
+"POT-Creation-Date: 2019-03-31 16:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Subscribe Now"
 msgstr ""
 
-#: controllers/wcfmvm-controller-memberships-registration.php:216 controllers/wcfmvm-controller-memberships-registration.php:223 core/class-wcfmvm-ajax.php:709 core/class-wcfmvm-ajax.php:716 core/class-wcfmvm-ajax.php:722 core/class-wcfmvm-ajax.php:729
+#: controllers/wcfmvm-controller-memberships-registration.php:227 controllers/wcfmvm-controller-memberships-registration.php:234 core/class-wcfmvm-ajax.php:709 core/class-wcfmvm-ajax.php:716 core/class-wcfmvm-ajax.php:722 core/class-wcfmvm-ajax.php:729
 msgid "Shop Name not available."
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Next Renewal"
 msgstr ""
 
-#: core/class-wcfmvm-ajax.php:533 core/class-wcfmvm-frontend.php:288 core/class-wcfmvm-frontend.php:331
+#: core/class-wcfmvm-ajax.php:533 core/class-wcfmvm-frontend.php:288 core/class-wcfmvm-frontend.php:331 core/class-wcfmvm-frontend.php:572 core/class-wcfmvm-frontend.php:611
 msgid "Never Expire"
 msgstr ""
 
@@ -197,15 +197,15 @@ msgstr ""
 msgid "Registration"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:242 core/class-wcfmvm-frontend.php:527 core/class-wcfmvm-frontend.php:1003 core/class-wcfmvm.php:1136 templates/vendor_membership.php:127 templates/vendor_payment.php:117 views/wcfmvm-view-memberships-manage.php:163
+#: core/class-wcfmvm-frontend.php:242 core/class-wcfmvm-frontend.php:527 core/class-wcfmvm-frontend.php:1011 core/class-wcfmvm.php:1138 templates/vendor_membership.php:127 templates/vendor_payment.php:117 views/wcfmvm-view-memberships-manage.php:163
 msgid "Day(s)"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:242 core/class-wcfmvm-frontend.php:527 core/class-wcfmvm-frontend.php:1003 core/class-wcfmvm.php:1136 templates/vendor_membership.php:127 templates/vendor_payment.php:117 views/wcfmvm-view-memberships-manage.php:163
+#: core/class-wcfmvm-frontend.php:242 core/class-wcfmvm-frontend.php:527 core/class-wcfmvm-frontend.php:1011 core/class-wcfmvm.php:1138 templates/vendor_membership.php:127 templates/vendor_payment.php:117 views/wcfmvm-view-memberships-manage.php:163
 msgid "Month(s)"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:242 core/class-wcfmvm-frontend.php:527 core/class-wcfmvm-frontend.php:1003 core/class-wcfmvm.php:1136 templates/vendor_membership.php:127 templates/vendor_payment.php:117 views/wcfmvm-view-memberships-manage.php:163
+#: core/class-wcfmvm-frontend.php:242 core/class-wcfmvm-frontend.php:527 core/class-wcfmvm-frontend.php:1011 core/class-wcfmvm.php:1138 templates/vendor_membership.php:127 templates/vendor_payment.php:117 views/wcfmvm-view-memberships-manage.php:163
 msgid "Year(s)"
 msgstr ""
 
@@ -237,21 +237,21 @@ msgstr ""
 msgid "Next payment on: "
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:339 core/class-wcfmvm-frontend.php:616 templates/vendor_membership.php:149 templates/vendor_membership.php:210 templates/vendor_payment.php:124
+#: core/class-wcfmvm-frontend.php:339 core/class-wcfmvm-frontend.php:616 templates/vendor_membership.php:149 templates/vendor_membership.php:213 templates/vendor_payment.php:124
 msgid "One time payment"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:343 core/class-wcfmvm-frontend.php:620 templates/vendor_membership.php:152 templates/vendor_membership.php:213 templates/vendor_payment.php:127
+#: core/class-wcfmvm-frontend.php:343 core/class-wcfmvm-frontend.php:620 templates/vendor_membership.php:152 templates/vendor_membership.php:216 templates/vendor_payment.php:127
 #, php-format
 msgid "for each %s %s"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:345 core/class-wcfmvm-frontend.php:622 templates/vendor_membership.php:154 templates/vendor_membership.php:215 templates/vendor_payment.php:129
+#: core/class-wcfmvm-frontend.php:345 core/class-wcfmvm-frontend.php:622 templates/vendor_membership.php:154 templates/vendor_membership.php:218 templates/vendor_payment.php:129
 #, php-format
 msgid "with %s for first %s %s"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:347 core/class-wcfmvm-frontend.php:624 templates/vendor_membership.php:156 templates/vendor_membership.php:217 templates/vendor_payment.php:131
+#: core/class-wcfmvm-frontend.php:347 core/class-wcfmvm-frontend.php:624 templates/vendor_membership.php:156 templates/vendor_membership.php:220 templates/vendor_payment.php:131
 #, php-format
 msgid "with %s %s free trial"
 msgstr ""
@@ -269,7 +269,7 @@ msgid "Vendor not yet subscribed for a membership!"
 msgstr ""
 
 #: core/class-wcfmvm-frontend.php:380 core/class-wcfmvm-frontend.php:658
-msgid "Additional Infos"
+msgid "Additional Info"
 msgstr ""
 
 #: core/class-wcfmvm-frontend.php:416
@@ -301,7 +301,7 @@ msgstr ""
 msgid "OR"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:722 core/class-wcfmvm.php:1026 core/class-wcfmvm.php:1097
+#: core/class-wcfmvm-frontend.php:722 core/class-wcfmvm.php:1027 core/class-wcfmvm.php:1099
 msgid "New Vendor"
 msgstr ""
 
@@ -333,20 +333,20 @@ msgstr ""
 msgid "Enable Vendor"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:1050
+#: core/class-wcfmvm-frontend.php:1058
 msgid "Stripe Plan ID missing."
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:1051 views/wcfmvm-view-memberships-manage.php:290
+#: core/class-wcfmvm-frontend.php:1059 views/wcfmvm-view-memberships-manage.php:290
 #, php-format
 msgid "%sHow can I have this?%s"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:1060
+#: core/class-wcfmvm-frontend.php:1068
 msgid "Pay"
 msgstr ""
 
-#: core/class-wcfmvm-frontend.php:1064 templates/vendor_payment.php:99 templates/vendor_payment.php:144 templates/vendor_payment.php:157 templates/vendor_payment.php:174
+#: core/class-wcfmvm-frontend.php:1072 templates/vendor_payment.php:99 templates/vendor_payment.php:144 templates/vendor_payment.php:157 templates/vendor_payment.php:174
 msgid "Proceed"
 msgstr ""
 
@@ -460,11 +460,11 @@ msgstr ""
 msgid "Pay for Product Credit"
 msgstr ""
 
-#: core/class-wcfmvm-shortcode.php:45 templates/vendor_membership.php:262 templates/vendor_membership.php:282
+#: core/class-wcfmvm-shortcode.php:45 templates/vendor_membership.php:265 templates/vendor_membership.php:285
 msgid "Kindly logout from Admin account to have \"Subscribe Now\" button."
 msgstr ""
 
-#: core/class-wcfmvm-shortcode.php:57 templates/vendor_membership.php:255 templates/vendor_membership.php:275
+#: core/class-wcfmvm-shortcode.php:57 templates/vendor_membership.php:258 templates/vendor_membership.php:278
 msgid "Your Plan"
 msgstr ""
 
@@ -532,141 +532,141 @@ msgstr ""
 msgid "Plan Details"
 msgstr ""
 
-#: core/class-wcfmvm.php:970 core/class-wcfmvm.php:1024 core/class-wcfmvm.php:1073 core/class-wcfmvm.php:1096
+#: core/class-wcfmvm.php:970 core/class-wcfmvm.php:1025 core/class-wcfmvm.php:1074 core/class-wcfmvm.php:1098
 msgid "Visit now ..."
 msgstr ""
 
-#: core/class-wcfmvm.php:975 core/class-wcfmvm.php:1075
+#: core/class-wcfmvm.php:976 core/class-wcfmvm.php:1077
 msgid "Welcome to the store!"
 msgstr ""
 
-#: core/class-wcfmvm.php:977 core/class-wcfmvm.php:1028
+#: core/class-wcfmvm.php:978 core/class-wcfmvm.php:1029
 msgid "Membership Subscription Change"
 msgstr ""
 
-#: core/class-wcfmvm.php:1035
+#: core/class-wcfmvm.php:1036
 #, php-format
 msgid "<b>%s</b> (Store: <b>%s</b>) subscribed for <b>%s</b> membership plan."
 msgstr ""
 
-#: core/class-wcfmvm.php:1037
+#: core/class-wcfmvm.php:1038
 #, php-format
 msgid "<b>%s</b> (Store: <b>%s</b>) has changed membership plan to <b>%s</b>."
 msgstr ""
 
-#: core/class-wcfmvm.php:1043
+#: core/class-wcfmvm.php:1044
 #, php-format
 msgid "You have subscribed for <b>%s</b> membership plan."
 msgstr ""
 
-#: core/class-wcfmvm.php:1045
+#: core/class-wcfmvm.php:1046
 #, php-format
 msgid "You have changed membership plan to <b>%s</b>."
 msgstr ""
 
-#: core/class-wcfmvm.php:1080
+#: core/class-wcfmvm.php:1082
 msgid "{site_name}: A new vendor registered"
 msgstr ""
 
-#: core/class-wcfmvm.php:1102
+#: core/class-wcfmvm.php:1104
 #, php-format
 msgid "<b>%s</b> (Store: <b>%s</b>) successfully registered to our site."
 msgstr ""
 
-#: core/class-wcfmvm.php:1106
+#: core/class-wcfmvm.php:1108
 msgid "You have successfully registered to our site."
 msgstr ""
 
-#: core/class-wcfmvm.php:1325
+#: core/class-wcfmvm.php:1327
 msgid "WC Subscription Cancellation"
 msgstr ""
 
-#: core/class-wcfmvm.php:1401
+#: core/class-wcfmvm.php:1403
 msgid "No Membership"
 msgstr ""
 
-#: core/class-wcfmvm.php:1405
+#: core/class-wcfmvm.php:1407
 msgid "Check Here ..."
 msgstr ""
 
-#: core/class-wcfmvm.php:1406
+#: core/class-wcfmvm.php:1408
 msgid "Vendor Approval"
-msgstr ""
-
-#: core/class-wcfmvm.php:1419
-#, php-format
-msgid "<b>%s</b> (Store: <b>%s</b>) vendor application waiting for approval."
 msgstr ""
 
 #: core/class-wcfmvm.php:1421
 #, php-format
+msgid "<b>%s</b> (Store: <b>%s</b>) vendor application waiting for approval."
+msgstr ""
+
+#: core/class-wcfmvm.php:1423
+#, php-format
 msgid "<b>%s</b> (Store: <b>%s</b>) subscription for <b>%s</b> plan waiting for approval."
 msgstr ""
 
-#: core/class-wcfmvm.php:1479
+#: core/class-wcfmvm.php:1481
 msgid "Membership Subscription Cancel"
 msgstr ""
 
-#: core/class-wcfmvm.php:1485
+#: core/class-wcfmvm.php:1487
 #, php-format
 msgid "<b>%s</b> (Store: <b>%s</b>) membership plan <b>%s</b> has been cancelled."
 msgstr ""
 
-#: core/class-wcfmvm.php:1491
+#: core/class-wcfmvm.php:1493
 #, php-format
 msgid "Your membership plan <b>%s</b> has been cancelled."
 msgstr ""
 
-#: core/class-wcfmvm.php:1591
+#: core/class-wcfmvm.php:1593
 msgid "Membership Subscription Expired"
 msgstr ""
 
-#: core/class-wcfmvm.php:1597
+#: core/class-wcfmvm.php:1599
 #, php-format
 msgid "<b>%s</b> (Store: <b>%s</b>) membership plan <b>%s</b> has been expired."
 msgstr ""
 
-#: core/class-wcfmvm.php:1603
+#: core/class-wcfmvm.php:1605
 #, php-format
 msgid "Your membership plan <b>%s</b> has been expired."
 msgstr ""
 
-#: core/class-wcfmvm.php:1760 core/class-wcfmvm.php:1763
+#: core/class-wcfmvm.php:1762 core/class-wcfmvm.php:1765
 msgid "in"
 msgstr ""
 
-#: core/class-wcfmvm.php:1760 core/class-wcfmvm.php:1763
+#: core/class-wcfmvm.php:1762 core/class-wcfmvm.php:1765
 msgid "Days"
 msgstr ""
 
-#: core/class-wcfmvm.php:1767
+#: core/class-wcfmvm.php:1769
 msgid "Today"
 msgstr ""
 
-#: core/class-wcfmvm.php:1793
+#: core/class-wcfmvm.php:1795
 msgid "Membership Subscription Renewal"
 msgstr ""
 
-#: core/class-wcfmvm.php:1795
+#: core/class-wcfmvm.php:1797
 msgid "Subscription Next Payment"
-msgstr ""
-
-#: core/class-wcfmvm.php:1803
-#, php-format
-msgid "<b>%s</b> membership plan (<strong>%s</strong>) will expire <b>%s</b>."
 msgstr ""
 
 #: core/class-wcfmvm.php:1805
 #, php-format
+msgid "<b>%s</b> membership plan (<strong>%s</strong>) will expire <b>%s</b>."
+msgstr ""
+
+#: core/class-wcfmvm.php:1807
+#, php-format
 msgid "<b>%s</b> membership plan (<strong>%s</strong>) subscription next billing date <b>%s</b>."
 msgstr ""
 
-#: core/class-wcfmvm.php:1813
+#: core/class-wcfmvm.php:1815
 #, php-format
 msgid "Your membership plan (<strong>%s</strong>) will expire <b>%s</b>."
 msgstr ""
 
-#: core/class-wcfmvm.php:1815
+#: core/class-wcfmvm.php:1817
 #, php-format
 msgid "Your membership plan (<strong>%s</strong>) subscription next billing date <b>%s</b>."
 msgstr ""
@@ -691,7 +691,7 @@ msgstr ""
 msgid "Bank Transfer"
 msgstr ""
 
-#: helpers/wcfmvm-core-functions.php:198 helpers/wcfmvm-core-functions.php:213 templates/vendor_registration.php:386
+#: helpers/wcfmvm-core-functions.php:198 helpers/wcfmvm-core-functions.php:213 templates/vendor_registration.php:393
 msgid "Plans"
 msgstr ""
 
@@ -763,15 +763,15 @@ msgstr ""
 msgid "Subscription Successfully Completed."
 msgstr ""
 
-#: templates/vendor_membership.php:135 templates/vendor_membership.php:196
+#: templates/vendor_membership.php:135 templates/vendor_membership.php:199
 msgid "Most Popular"
 msgstr ""
 
-#: templates/vendor_membership.php:145 templates/vendor_membership.php:206
+#: templates/vendor_membership.php:145 templates/vendor_membership.php:209
 msgid "No payment required"
 msgstr ""
 
-#: templates/vendor_membership.php:252 templates/vendor_membership.php:272
+#: templates/vendor_membership.php:255 templates/vendor_membership.php:275
 msgid "Extend Subscription"
 msgstr ""
 
@@ -841,35 +841,35 @@ msgstr ""
 msgid "Un-available"
 msgstr ""
 
-#: templates/vendor_registration.php:336
+#: templates/vendor_registration.php:343
 msgid "Password"
 msgstr ""
 
-#: templates/vendor_registration.php:336
+#: templates/vendor_registration.php:343
 msgid "Password and Confirm-password are not same."
 msgstr ""
 
-#: templates/vendor_registration.php:337
+#: templates/vendor_registration.php:344
 msgid "Confirm Password"
 msgstr ""
 
-#: templates/vendor_registration.php:346 templates/vendor_registration.php:351
+#: templates/vendor_registration.php:353 templates/vendor_registration.php:358
 msgid "Agree"
 msgstr ""
 
-#: templates/vendor_registration.php:346 templates/vendor_registration.php:354 templates/vendor_registration.php:356
+#: templates/vendor_registration.php:353 templates/vendor_registration.php:361 templates/vendor_registration.php:363
 msgid "Terms & Conditions"
 msgstr ""
 
-#: templates/vendor_registration.php:384
+#: templates/vendor_registration.php:391
 msgid "Confirm"
 msgstr ""
 
-#: templates/vendor_registration.php:384
+#: templates/vendor_registration.php:391
 msgid "Register"
 msgstr ""
 
-#: templates/vendor_registration.php:389
+#: templates/vendor_registration.php:396
 msgid "Your user role not allowed to subscription!"
 msgstr ""
 

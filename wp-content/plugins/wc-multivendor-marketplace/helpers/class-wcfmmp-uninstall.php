@@ -48,8 +48,6 @@ class WCFMmp_Uninstall {
 		$create_tables_query = array();
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_orders`";
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_orders_meta`";
-		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_affiliate_orders`";
-		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_affiliate_orders_meta`";
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_withdraw_request`";
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_withdraw_request_meta`";
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_marketplace_reverse_withdrawal`";
@@ -75,6 +73,14 @@ class WCFMmp_Uninstall {
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_support_meta`";
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_support_response`";
 		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_following_followers`";
+		
+		// Affiliate
+		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_affiliate_orders`";
+		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_affiliate_orders_meta`";
+		
+		// Delivery
+		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_delivery_orders`";
+		$delete_tables_query[] = "DROP TABLE IF EXISTS `" . $wpdb->prefix . "wcfm_delivery_orders_meta`";
 		
 		foreach ($delete_tables_query as $delete_table_query) {
 			$wpdb->query($delete_table_query);

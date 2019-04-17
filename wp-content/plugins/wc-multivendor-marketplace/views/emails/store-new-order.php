@@ -441,7 +441,11 @@ if( apply_filters( 'wcfm_is_allow_wc_default_email_customer_details', false ) ) 
 				</td>
 			<?php } ?>
 			
+<<<<<<< HEAD
 			<?php if( ( $shipping = $order->get_formatted_shipping_address() ) && $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $vendor_id, 'view_shipping_details' ) ) { ?>
+=======
+			<?php if( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) && $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $vendor_id, 'view_shipping_details' ) ) { ?>
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 				<td style="text-align:<?php echo $text_align; ?>; padding:0 2px;" valign="top" width="50%">
 					<h2><?php _e( 'Shipping address', 'wc-multivendor-marketplace' ); ?></h2>
 	

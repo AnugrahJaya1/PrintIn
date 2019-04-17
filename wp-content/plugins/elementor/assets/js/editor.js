@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! elementor - v2.5.12 - 08-04-2019 */
+=======
+/*! elementor - v2.5.11 - 31-03-2019 */
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -7746,6 +7750,7 @@ module.exports = Marionette.Behavior.extend({
 
 		if ($tagsList.is(':visible')) {
 			$tagsList.hide();
+<<<<<<< HEAD
 
 			return;
 		}
@@ -7755,6 +7760,15 @@ module.exports = Marionette.Behavior.extend({
 		$tagsList.show().position({
 			my: direction + ' top',
 			at: direction + ' bottom+5',
+=======
+
+			return;
+		}
+
+		$tagsList.show().position({
+			my: 'right top',
+			at: 'right bottom+5',
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 			of: this.ui.dynamicSwitcher
 		});
 	},
@@ -7803,6 +7817,7 @@ module.exports = Marionette.Behavior.extend({
 			}
 		};
 	},
+<<<<<<< HEAD
 
 	setDynamicValue: function setDynamicValue(value) {
 		var settingKey = this.view.model.get('name'),
@@ -7867,6 +7882,72 @@ module.exports = Marionette.Behavior.extend({
 
 		delete dynamicSettings[settingKey];
 
+=======
+
+	setDynamicValue: function setDynamicValue(value) {
+		var settingKey = this.view.model.get('name'),
+		    dynamicSettings = this.view.elementSettingsModel.get('__dynamic__') || {};
+
+		dynamicSettings = elementorCommon.helpers.cloneObject(dynamicSettings);
+
+		dynamicSettings[settingKey] = value;
+
+		this.view.elementSettingsModel.set('__dynamic__', dynamicSettings, this.getDynamicControlSettings(settingKey));
+
+		this.toggleDynamicClass();
+	},
+
+	destroyTagView: function destroyTagView() {
+		if (this.tagView) {
+			this.tagView.destroy();
+
+			this.tagView = null;
+		}
+	},
+
+	onRender: function onRender() {
+		this.$el.addClass('elementor-control-dynamic');
+
+		this.renderTools();
+
+		this.toggleDynamicClass();
+
+		if (this.isDynamicMode()) {
+			this.setDefaultTagView();
+		}
+	},
+
+	onDynamicSwitcherClick: function onDynamicSwitcherClick() {
+		this.toggleTagsList();
+	},
+
+	onTagsListItemClick: function onTagsListItemClick(event) {
+		var $tag = jQuery(event.currentTarget);
+
+		this.setTagView(elementor.helpers.getUniqueID(), $tag.data('tagName'), {});
+
+		this.setDynamicValue(this.tagViewToTagText());
+
+		this.toggleTagsList();
+
+		if (this.tagView.getTagConfig().settings_required) {
+			this.tagView.showSettingsPopup();
+		}
+	},
+
+	onTagViewModelChange: function onTagViewModelChange() {
+		this.setDynamicValue(this.tagViewToTagText());
+	},
+
+	onTagViewRemove: function onTagViewRemove() {
+		var settingKey = this.view.model.get('name'),
+		    dynamicSettings = this.view.elementSettingsModel.get('__dynamic__');
+
+		dynamicSettings = elementorCommon.helpers.cloneObject(dynamicSettings);
+
+		delete dynamicSettings[settingKey];
+
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 		if (Object.keys(dynamicSettings).length) {
 			this.view.elementSettingsModel.set('__dynamic__', dynamicSettings, this.getDynamicControlSettings(settingKey));
 		} else {
@@ -11961,10 +12042,21 @@ var AddSectionView = function (_BaseAddSectionView) {
 		key: 'onPresetSelected',
 		value: function onPresetSelected(event) {
 			_get(AddSectionView.prototype.__proto__ || Object.getPrototypeOf(AddSectionView.prototype), 'onPresetSelected', this).call(this, event);
+<<<<<<< HEAD
+=======
 
 			this.destroy();
 		}
 	}, {
+		key: 'onAddTemplateButtonClick',
+		value: function onAddTemplateButtonClick() {
+			_get(AddSectionView.prototype.__proto__ || Object.getPrototypeOf(AddSectionView.prototype), 'onAddTemplateButtonClick', this).call(this);
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
+
+			this.destroy();
+		}
+	}, {
+<<<<<<< HEAD
 		key: 'onAddTemplateButtonClick',
 		value: function onAddTemplateButtonClick() {
 			_get(AddSectionView.prototype.__proto__ || Object.getPrototypeOf(AddSectionView.prototype), 'onAddTemplateButtonClick', this).call(this);
@@ -11980,6 +12072,16 @@ var AddSectionView = function (_BaseAddSectionView) {
 		}
 	}]);
 
+=======
+		key: 'onDropping',
+		value: function onDropping() {
+			_get(AddSectionView.prototype.__proto__ || Object.getPrototypeOf(AddSectionView.prototype), 'onDropping', this).call(this);
+
+			this.destroy();
+		}
+	}]);
+
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 	return AddSectionView;
 }(_base2.default);
 
@@ -12007,6 +12109,7 @@ ColumnView = BaseElementView.extend({
 
 	behaviors: function behaviors() {
 		var behaviors = BaseElementView.prototype.behaviors.apply(this, arguments);
+<<<<<<< HEAD
 
 		_.extend(behaviors, {
 			Sortable: {
@@ -12025,6 +12128,26 @@ ColumnView = BaseElementView.extend({
 		var classes = BaseElementView.prototype.className.apply(this, arguments),
 		    type = this.isInner() ? 'inner' : 'top';
 
+=======
+
+		_.extend(behaviors, {
+			Sortable: {
+				behaviorClass: __webpack_require__(11),
+				elChildType: 'widget'
+			},
+			Resizable: {
+				behaviorClass: __webpack_require__(98)
+			}
+		});
+
+		return elementor.hooks.applyFilters('elements/column/behaviors', behaviors, this);
+	},
+
+	className: function className() {
+		var classes = BaseElementView.prototype.className.apply(this, arguments),
+		    type = this.isInner() ? 'inner' : 'top';
+
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 		return classes + ' elementor-column elementor-' + type + '-column';
 	},
 

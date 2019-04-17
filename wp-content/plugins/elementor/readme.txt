@@ -4,7 +4,11 @@ Tags: page builder, editor, landing page, drag-and-drop, elementor, visual edito
 Requires at least: 4.7
 Tested up to: 5.1
 Requires PHP: 5.4
+<<<<<<< HEAD
 Stable tag: 2.5.12
+=======
+Stable tag: 2.5.11
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -221,6 +225,7 @@ No. Elementor supports WordPress 4.7 or greater, and is compatible with PHP 5.4 
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 2.5.12 - 2019-04-08 =
 * Fix: DB updates process not running in edge cases ([#7725](https://github.com/elementor/elementor/issues/7725))
 * Fix: Column width issue after Column Gap value changed ([#7718](https://github.com/elementor/elementor/issues/7718))
@@ -233,6 +238,8 @@ No. Elementor supports WordPress 4.7 or greater, and is compatible with PHP 5.4 
 * Fix: Dynamic Tag dropdown in RTL
 * Fix: Color picker UI glitch
 
+=======
+>>>>>>> 269286d0c7a8c757990f35a09ff5224f4a11b5cc
 = 2.5.11 - 2019-03-31 =
 * Tweak: Removed duplicated grid style from frontend.css
 * Fix: Document settings not saving ([#7629](https://github.com/elementor/elementor/issues/7629))

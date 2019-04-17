@@ -31,7 +31,7 @@
 	flex: 5 auto;
     
 	vertical-align: top;
-	background-color: #6dc7be;
+	background-color: #63c2de;
 	visibility: visible !important;
 	
 	-moz-border-radius: 6px;
@@ -69,7 +69,7 @@
 #wcfm-main-contentainer .wcfm_membership_review_plan .wcfm_review_plan_description {
 	text-align: center;
 	font-size: 15px;
-	color: #dfdfdf; 
+	color: #ffffff; 
 	margin-bottom: 10px;
 }
 
@@ -117,6 +117,8 @@
 	margin: 20px;
 }
 
+#wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_pay_non_free input {margin-right:10px;}
+
 #wcfm-main-contentainer .wcfm_membership_review_pay .wcfm_review_pay_non_free .amount {
 	color: #D01F3C;
 }
@@ -148,7 +150,7 @@
 	border-bottom: 1px solid #17a2b8;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: px;
-	border-radius: 3px;
+	border-radius: 4px;
 	color: #fff;
 	font-weight: 500;
 	letter-spacing: 0.046875em;

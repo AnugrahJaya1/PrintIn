@@ -205,7 +205,7 @@
 	
 	background: #1a1a1a none repeat scroll 0 0;
 	border: 0 none;
-	border-radius: 2px;
+	border-radius: 4px;
 	color: #fff;
 	font-family: Montserrat,"Helvetica Neue",sans-serif;
 	font-weight: 500;
@@ -255,6 +255,8 @@
 #orders_details_items_expander .wc-order-totals .refunded-total, #orders_details_items_expander #order_refunds .refunded-total {
 	color: #a00 !important;
 }
+
+td.bkap_edit_column a {display: none !important;}
 
 @media only screen and (max-width: 414px) {
   .no_mob {

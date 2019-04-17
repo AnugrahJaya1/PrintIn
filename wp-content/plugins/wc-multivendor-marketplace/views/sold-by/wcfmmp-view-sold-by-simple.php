@@ -47,7 +47,17 @@ if( $vendor_id ) {
 			echo '<img class="wcfmmp_sold_by_logo" src="' . $store_logo . '" />&nbsp;';
 		}
 		
-		echo $store_name . '</div>';
+		echo $store_name;
+		
+		if( apply_filters( 'wcfmmp_is_allow_sold_by_badges', true ) ) {
+			if( apply_filters( 'wcfm_is_allow_badges_with_store_name', false ) ) {
+				echo '<div class="wcfmmp_sold_by_badges_with_store_name" style="display:inline-block;margin-left:10px;">';
+				do_action('wcfmmp_store_mobile_badges', $vendor_id );
+				echo '</div>';
+			}
+		}
+		
+		echo '</div>';
 		
 		if( apply_filters( 'wcfmmp_is_allow_sold_by_review', true ) ) {
 			echo '<div class="wcfm-clearfix"></div>';
@@ -55,7 +65,13 @@ if( $vendor_id ) {
 			echo '<div class="wcfm-clearfix"></div>';
 		}
 		
-		do_action('after_wcfmmp_sold_by_label_product_page', $vendor_id );
+		if( apply_filters( 'wcfmmp_is_allow_sold_by_badges', true ) ) {
+			if( !apply_filters( 'wcfm_is_allow_badges_with_store_name', false ) ) {
+				do_action('wcfmmp_store_mobile_badges', $vendor_id );
+			}
+		}
+		
+		do_action('wcfmmp_sold_by_label_product_page_after', $vendor_id );
 		
 		echo '<div class="wcfm-clearfix"></div>';
 		echo '</div>';

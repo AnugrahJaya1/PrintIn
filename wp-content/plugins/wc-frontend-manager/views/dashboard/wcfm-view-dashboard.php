@@ -288,18 +288,20 @@ $admin_fee_mode = apply_filters( 'wcfm_is_admin_fee_mode', false );
 										
 										<?php do_action( 'after_wcfm_dashboard_orders' ); ?>
 										
-										<li class="low-in-stock">
-											<a href="<?php echo apply_filters( 'low_in_stock_report_url',  get_wcfm_reports_url( ) ); ?>">
-												<span class="wcfmfa fa-sort-amount-down"></span>
-												<?php printf( _n( "<strong>%s product</strong> - low in stock", "<strong>%s products</strong> - low in stock", $lowinstock_count, 'wc-frontend-manager' ), $lowinstock_count ); ?>
-											</a>
-										</li>
-										<li class="out-of-stock">
-											<a href="<?php echo get_wcfm_reports_url( '', 'wcfm-reports-out-of-stock' ); ?>">
-												<span class="wcfmfa fa-times-circle"></span>
-												<?php printf( _n( "<strong>%s product</strong> - out of stock", "<strong>%s products</strong> - out of stock", $outofstock_count, 'wc-frontend-manager' ), $outofstock_count ); ?>
-											</a>
-										</li>
+										<?php if( $wcfm_is_allow_reports = apply_filters( 'wcfm_is_allow_reports', true ) ) { ?>
+											<li class="low-in-stock">
+												<a href="<?php echo apply_filters( 'low_in_stock_report_url',  get_wcfm_reports_url( ) ); ?>">
+													<span class="wcfmfa fa-sort-amount-down"></span>
+													<?php printf( _n( "<strong>%s product</strong> - low in stock", "<strong>%s products</strong> - low in stock", $lowinstock_count, 'wc-frontend-manager' ), $lowinstock_count ); ?>
+												</a>
+											</li>
+											<li class="out-of-stock">
+												<a href="<?php echo get_wcfm_reports_url( '', 'wcfm-reports-out-of-stock' ); ?>">
+													<span class="wcfmfa fa-times-circle"></span>
+													<?php printf( _n( "<strong>%s product</strong> - out of stock", "<strong>%s products</strong> - out of stock", $outofstock_count, 'wc-frontend-manager' ), $outofstock_count ); ?>
+												</a>
+											</li>
+										<?php } ?>
 										
 										<?php do_action( 'after_wcfm_dashboard_stock_reports' ); ?>
 										

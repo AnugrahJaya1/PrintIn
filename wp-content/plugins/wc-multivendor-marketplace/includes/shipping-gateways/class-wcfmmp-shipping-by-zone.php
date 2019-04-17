@@ -235,88 +235,93 @@ class WCFMmp_Shipping_By_Zone extends WC_Shipping_Method {
       }
 
       foreach ( $shipping_methods as $key => $method ) {
-          $tax_rate = ( $method['settings']['tax_status'] == 'none' ) ? false : '';
-          $has_costs     = false;
+				$tax_rate = ( $method['settings']['tax_status'] == 'none' ) ? false : '';
+				$has_costs     = false;
 
-          if ( 'yes' != $method['enabled'] ) {
-              continue;
-          }
+				if ( 'yes' != $method['enabled'] ) {
+					continue;
+				}
 
-          if ( $method['id'] == 'flat_rate' ) {
-              $setting_cost = isset( $method['settings']['cost'] ) ? stripslashes_deep( $method['settings']['cost'] ) : '';
+				if ( $method['id'] == 'flat_rate' ) {
+					$setting_cost = isset( $method['settings']['cost'] ) ? stripslashes_deep( $method['settings']['cost'] ) : '';
+					
+					$is_available = $this->flat_shipping_is_available( $package, $method );
+					if ( !$is_available ) {
+						continue;
+					}
 
-              if ( '' !== $setting_cost ) {
-                  $has_costs = true;
-                  $cost = $this->evaluate_cost( $setting_cost, array(
-                      'qty'  => $this->get_package_item_qty( $package ),
-                      'cost' => $package['contents_cost'],
-                  ) );
-              }
+					if ( '' !== $setting_cost ) {
+						$has_costs = true;
+						$cost = $this->evaluate_cost( $setting_cost, array(
+								'qty'  => $this->get_package_item_qty( $package ),
+								'cost' => $package['contents_cost'],
+						) );
+					}
 
-              // Add shipping class costs.
-              $shipping_classes = WC()->shipping->get_shipping_classes();
+					// Add shipping class costs.
+					$shipping_classes = WC()->shipping->get_shipping_classes();
 
-              if ( ! empty( $shipping_classes ) ) {
-                  $found_shipping_classes = $this->find_shipping_classes( $package );
-                  $highest_class_cost     = 0;
-                  $calculation_type = ! empty( $method['settings']['calculation_type'] ) ? $method['settings']['calculation_type'] : 'class';
-                  foreach ( $found_shipping_classes as $shipping_class => $products ) {
-                      // Also handles BW compatibility when slugs were used instead of ids
-                      $shipping_class_term = get_term_by( 'slug', $shipping_class, 'product_shipping_class' );
-                      $class_cost_string   = $shipping_class_term && $shipping_class_term->term_id
-                                              ? ( ! empty( $method['settings']['class_cost_' . $shipping_class_term->term_id ] ) ? stripslashes_deep( $method['settings']['class_cost_' . $shipping_class_term->term_id] ) : '' )
-                                              : ( ! empty( $method['settings']['no_class_cost'] ) ? $method['settings']['no_class_cost'] : '' );
+					if ( ! empty( $shipping_classes ) ) {
+						$found_shipping_classes = $this->find_shipping_classes( $package );
+						$highest_class_cost     = 0;
+						$calculation_type = ! empty( $method['settings']['calculation_type'] ) ? $method['settings']['calculation_type'] : 'class';
+						foreach ( $found_shipping_classes as $shipping_class => $products ) {
+							// Also handles BW compatibility when slugs were used instead of ids
+							$shipping_class_term = get_term_by( 'slug', $shipping_class, 'product_shipping_class' );
+							$class_cost_string   = $shipping_class_term && $shipping_class_term->term_id
+																			? ( ! empty( $method['settings']['class_cost_' . $shipping_class_term->term_id ] ) ? stripslashes_deep( $method['settings']['class_cost_' . $shipping_class_term->term_id] ) : '' )
+																			: ( ! empty( $method['settings']['no_class_cost'] ) ? $method['settings']['no_class_cost'] : '' );
 
-                      if ( '' === $class_cost_string ) {
-                          continue;
-                      }
+							if ( '' === $class_cost_string ) {
+								continue;
+							}
 
-                      $has_costs  = true;
+							$has_costs  = true;
 
-                      $class_cost = $this->evaluate_cost( $class_cost_string, array(
-                          'qty'  => array_sum( wp_list_pluck( $products, 'quantity' ) ),
-                          'cost' => array_sum( wp_list_pluck( $products, 'line_total' ) ),
-                      ) );
+							$class_cost = $this->evaluate_cost( $class_cost_string, array(
+								'qty'  => array_sum( wp_list_pluck( $products, 'quantity' ) ),
+								'cost' => array_sum( wp_list_pluck( $products, 'line_total' ) ),
+							) );
 
-                      if ( 'class' === $calculation_type ) {
-                          $cost += $class_cost;
-                      } else {
-                          $highest_class_cost = $class_cost > $highest_class_cost ? $class_cost : $highest_class_cost;
-                      }
-                  }
+							if ( 'class' === $calculation_type ) {
+									$cost += $class_cost;
+							} else {
+								$highest_class_cost = $class_cost > $highest_class_cost ? $class_cost : $highest_class_cost;
+							}
+						}
 
-                  if ( 'order' === $calculation_type && $highest_class_cost ) {
-                      $cost += $highest_class_cost;
-                  }
-              }
+						if ( 'order' === $calculation_type && $highest_class_cost ) {
+							$cost += $highest_class_cost;
+						}
+					}
 
-          } elseif ( 'free_shipping' == $method['id'] ) {
-              $is_available = self::free_shipping_is_available( $package, $method );
+				} elseif ( 'free_shipping' == $method['id'] ) {
+					$is_available = self::free_shipping_is_available( $package, $method );
 
-              if ( $is_available ) {
-                  $cost = '0';
-                  $has_costs = true;
-              }
-          } else {
-              if ( isset( $method['settings']['cost'] ) && $method['settings']['cost'] != '' ) {
-                  $has_costs = true;
-                  $cost = $method['settings']['cost'];
-              }
-          }
+					if ( $is_available ) {
+						$cost = '0';
+						$has_costs = true;
+					}
+				} else {
+					if ( isset( $method['settings']['cost'] ) && $method['settings']['cost'] != '' ) {
+						$has_costs = true;
+						$cost = $method['settings']['cost'];
+					}
+				}
 
 
-          if ( ! $has_costs ) {
-              continue;
-          }
+				if ( ! $has_costs ) {
+						continue;
+				}
 
-          $rates[] = array(
-              'id'          => $this->get_method_rate_id( $method ),
-              'label'       => $method['title'],
-              'cost'        => $cost,
-              'description' => ! empty( $method['settings']['description'] ) ? $method['settings']['description'] : '',
-              'taxes'       => $tax_rate,
-              'default'     => 'off'
-          );
+				$rates[] = array(
+						'id'          => $this->get_method_rate_id( $method ),
+						'label'       => $method['title'],
+						'cost'        => $cost,
+						'description' => ! empty( $method['settings']['description'] ) ? $method['settings']['description'] : '',
+						'taxes'       => $tax_rate,
+						'default'     => 'off'
+				);
       }
       
       //print_r($rates); die;
@@ -340,6 +345,20 @@ class WCFMmp_Shipping_By_Zone extends WC_Shipping_Method {
               }
           }
       }
+  }
+  
+  /**
+   * See if flat rate shipping is available based on the package and cart.
+   *
+   * @param array $package Shipping package.
+   *
+   * @return bool
+   */
+  public function flat_shipping_is_available( $package, $method ) {
+  	add_filter( 'wcfmmp_is_allow_zone_shipping_overall_rule_check', function( $is_allow ) {
+  	  return true;
+  	}, 999 );
+  	return $this->is_available( $package );
   }
 
 
@@ -416,7 +435,7 @@ class WCFMmp_Shipping_By_Zone extends WC_Shipping_Method {
       $destination_postcode = isset( $package['destination']['postcode'] ) ? $package['destination']['postcode'] : '';
 
       if ( empty( $vendor_id ) ) {
-          return false;
+        return false;
       }
 
       $zone = WC_Shipping_Zones::get_zone_matching_package( $package );
@@ -424,13 +443,15 @@ class WCFMmp_Shipping_By_Zone extends WC_Shipping_Method {
       $locations = WCFMmp_Shipping_Zone::get_locations( $zone->get_id(), $vendor_id );
       
       if ( empty( $locations ) ) {
-          return true;
+        return true;
       }
+      
+      if( !apply_filters( 'wcfmmp_is_allow_zone_shipping_overall_rule_check', true ) ) return true;
 
       $location_group = array();
 
       foreach ( $locations as $location ) {
-          $location_group[$location['type']][] = $location;
+				$location_group[$location['type']][] = $location;
       }
       //print_r($locations); die;
       $is_available = false;
@@ -479,7 +500,7 @@ class WCFMmp_Shipping_By_Zone extends WC_Shipping_Method {
       }
 
       if ( $is_available ) {
-          return true;
+        return true;
       }
 
       return false;

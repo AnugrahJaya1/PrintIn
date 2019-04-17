@@ -17,6 +17,8 @@ $email    = $store_user->get_email();
 $phone    = $store_user->get_phone(); 
 $address  = $store_user->get_address_string(); 
 
+$store_address_info_class = '';
+
 ?>
 
 <?php do_action( 'wcfmmp_store_before_header', $store_user->get_id() ); ?>
@@ -35,29 +37,39 @@ $address  = $store_user->get_address_string();
 					
 					<?php if( apply_filters( 'wcfm_is_pref_vendor_reviews', true ) ) { $WCFMmp->wcfmmp_reviews->show_star_rating( 0, $store_user->get_id() ); } ?>
 					
-					<div class="wcfmmp_store_mobile_badges">
-						<?php do_action( 'wcfmmp_store_mobile_badges', $store_user->get_id() ); ?>
-						<div class="spacer"></div> 
-					</div>
+					<?php if( !apply_filters( 'wcfm_is_allow_badges_with_store_name', false ) ) { ?>
+						<div class="wcfmmp_store_mobile_badges">
+							<?php do_action( 'wcfmmp_store_mobile_badges', $store_user->get_id() ); ?>
+							<div class="spacer"></div> 
+						</div>
+					<?php } ?>
 					<div class="spacer"></div>  
 				</div>
 				
 				<div class="address rgt">
 				  <?php if( ( $WCFMmp->wcfmmp_vendor->get_vendor_name_position( $store_user->get_id() ) == 'on_header' ) || apply_filters( 'wcfm_is_allow_store_name_on_header', false ) ) { ?>
-				  	<h1 class="wcfm_store_title"><?php echo apply_filters( 'wcfmmp_store_title', $store_info['store_name'], $store_user->get_id() ); ?></h1>
-				  <?php } ?>
+				  	<h1 class="wcfm_store_title">
+				  	  <?php echo apply_filters( 'wcfmmp_store_title', $store_info['store_name'], $store_user->get_id() ); ?>
+				  	  <?php if( apply_filters( 'wcfm_is_allow_badges_with_store_name', false ) ) { ?>
+								<div class="wcfmmp_store_mobile_badges wcfmmp_store_mobile_badges_with_store_name">
+									<?php do_action( 'wcfmmp_store_mobile_badges', $store_user->get_id() ); ?>
+									<div class="spacer"></div> 
+								</div>
+							<?php } ?>
+				  	</h1>
+				  <?php $store_address_info_class = 'header_store_name'; } ?>
 				  
 				  <?php do_action( 'before_wcfmmp_store_header_info', $store_user->get_id() ); ?>
 					<?php do_action( 'wcfmmp_store_before_address', $store_user->get_id() ); ?>
 					
 					<?php if( $address && ( $store_info['store_hide_address'] == 'no' ) && $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $store_user->get_id(), 'vendor_address' ) ) { ?>
-						<p><i class="wcfmfa fa-map-marker" aria-hidden="true"></i><span><?php echo $address; ?></span></p>
+						<p class="<?php echo $store_address_info_class; ?>"><i class="wcfmfa fa-map-marker" aria-hidden="true"></i><span><?php echo $address; ?></span></p>
 					<?php } ?>
 					
 					<?php do_action( 'wcfmmp_store_after_address', $store_user->get_id() ); ?>
 					<?php do_action( 'wcfmmp_store_before_phone', $store_user->get_id() ); ?>
 					
-					<div>
+					<div class="<?php echo $store_address_info_class; ?>">
 						<?php if( $phone && ( $store_info['store_hide_phone'] == 'no' ) && $WCFM->wcfm_vendor_support->wcfm_vendor_has_capability( $store_user->get_id(), 'vendor_phone' ) ) { ?>
 							<div class="store_info_parallal" style="margin-right: 10px;"><i class="wcfmfa fa-phone" aria-hidden="true"></i><span><?php echo $phone; ?></span></div>
 						<?php } ?>

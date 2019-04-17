@@ -522,8 +522,10 @@ display: inline-block;
 }
 
 #wcfmmp-store .address{padding-left:36px; position:absolute; top:15%; left:140px;width:600px;}
-#wcfmmp-store .address i{font-size:20px;display:inline-block;vertical-align: top; color:#979595;}
+#wcfmmp-store .address i{font-size:20px;display:inline-block;vertical-align:top;line-height:20px;color:#979595;}
 #wcfmmp-store .address span{font-size:15px; line-height:20px; color:#fff; margin-left:10px;display:inline-block;vertical-align: top; width:90%;}
+#wcfmmp-store .address .header_store_name i{font-size:15px;line-height:18px;}
+#wcfmmp-store .address .header_store_name span{font-size:13px; line-height:18px;}
 #wcfmmp-store .address span a{vertical-align: top;}
 #wcfmmp-store div.store_info_parallal span {width:auto;}
 #wcfmmp-store .address a{color:#fff;}
@@ -540,6 +542,7 @@ display: inline-block;
 #wcfmmp-store .bd_icon i{color:#646464; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); -moz-transform:translate(-50%,-50%); -ms-transform:translate(-50%,-50%); -o-transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); font-size:16px;}*/
 #wcfmmp-store .bd_icon{display:inline-block; vertical-align:middle;}
 #wcfmmp-store .bd_icon i{color:#979595; font-size:28px;}
+#wcfmmp-store .wcfmmp_store_mobile_badges_with_store_name{display:inline-block;margin-left:10px;}
 #wcfmmp-store .wcfm_vendor_badges div.wcfm_vendor_badge{float: left;margin-top:5px;}
 #wcfmmp-store .wcfmmp_store_mobile_badges{}
 #wcfmmp-store .wcfmmp_store_mobile_badges .wcfm_vendor_badges div.wcfm_vendor_badge{float:none;}

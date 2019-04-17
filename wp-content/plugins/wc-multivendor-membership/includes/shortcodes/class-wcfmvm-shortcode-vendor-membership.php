@@ -33,7 +33,7 @@ class WCFM_Vendor_Membership_Shortcode {
 			$steps = wcfm_membership_registration_steps();
 			$current_step = wcfm_membership_registration_current_step();
 				
-			if( wcfm_is_allowed_membership() || current_user_can( 'administrator' ) ) {
+			if( wcfm_is_allowed_membership() || current_user_can( 'administrator' ) || current_user_can( 'shop_manager' ) ) {
 				
 				if( !isset( $_SESSION['wcfm_membership'] ) || !isset( $_SESSION['wcfm_membership']['free_registration'] ) ) {
 					$WCFMvm->template->get_template( 'vendor_membership_steps.php' );

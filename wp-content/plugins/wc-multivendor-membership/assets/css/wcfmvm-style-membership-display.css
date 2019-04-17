@@ -43,7 +43,7 @@
 	border-radius: 5px 5px 0px 0px;
 	-webkit-border-radius: 5px 5px 0px 0px;
 	-moz-border-radius: 5px 5px 0px 0px;
-	background-color: #2d4e4c;
+	background-color: #17a2b8;
 	padding-bottom: 20px;
 }
 
@@ -56,7 +56,7 @@
 	font-size: 24px;
 	padding: 10px;
 	font-weight: 600;
-	color: #ececec;
+	color: #ffffff;
 	background: #2a3344;
 	margin-bottom: 10px;
 }
@@ -69,7 +69,7 @@
 	-webkit-border-radius: 50%;
 	-moz-border-radius:50%;
 	padding-top: 30px;
-	color: #ececec;
+	color: #ffffff;
 	min-width: 100px;
 	min-height: 100px;
 	margin: 2px auto;
@@ -85,7 +85,7 @@
 #wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_description {
 	font-size: 15px;
 	padding: 10px;
-	color: #C3D9FF;
+	color: #ffffff;
 	display: table;
 	width: 100%;
 }
@@ -121,7 +121,7 @@
 }
 
 #wcfm-main-contentainer .wcfm_membership_element:nth-child(even) {
-	background-color: #afd2cf;
+	background-color: #d3eef6;
 }
 
 #wcfm-main-contentainer .wcfm_membership_element .wcfm_membership_element_content {
@@ -181,5 +181,6 @@
 		width: 50%;
 		display: inline-block;
 		float: left;
+		margin-bottom: 0px;
 	}
 }

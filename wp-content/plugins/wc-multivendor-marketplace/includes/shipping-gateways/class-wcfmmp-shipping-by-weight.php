@@ -181,12 +181,13 @@ class WCFMmp_Shipping_By_Weight extends WC_Shipping_Method {
     $price = array();
     
     $seller_products = array();
+    $total_weight = 0.0;
 
     foreach ( $products as $product ) {
 			$vendor_id                     = get_post_field( 'post_author', $product['product_id'] );
 			$seller_products[$vendor_id][] = $product;
     }
-    $total_weight = 0.0;
+    
     if ( $seller_products ) {
       foreach ( $seller_products as $vendor_id => $products ) {
 
@@ -221,7 +222,7 @@ class WCFMmp_Shipping_By_Weight extends WC_Shipping_Method {
 			$amount = $selected_rule['price'];
 		} 
 		
-    return apply_filters( 'wcfmmp_shipping_calculate_amount', $amount, $price, $products, $destination_country, $destination_state );
+    return apply_filters( 'wcfmmp_shipping_weight_calculate_amount', $amount, $price, $products, $destination_country, $destination_state, $weight_array_for_country, $default_cost_for_country, $total_weight );
   }
   
 }

@@ -1,0 +1,3 @@
+<!--  --><span><strong>Version 4.11.1</strong> is a regular release introducing some minor improvements and bug fixes. The Professional edition includes an important improvement, compatibility with <strong>NextGEN Gallery</strong> (NGG) plugin, the most popular Wordpress gallery plugin. Now uploaded files can automatically be added to NGG galleries.<br /><br />
+For more details about this version's changes please visit the Release Notes of the plugin's </span><a href="http://www.iptanus.com/wordpress-plugins/wordpress-file-upload/">support page</a><span>.</span><!--  -->
+<!--  -->

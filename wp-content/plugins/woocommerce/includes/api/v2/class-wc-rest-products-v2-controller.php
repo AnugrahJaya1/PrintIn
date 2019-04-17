@@ -58,8 +58,7 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 */
 	public function register_routes() {
 		register_rest_route(
-			$this->namespace, '/' . $this->rest_base, // @codingStandardsIgnoreLine.
-			array(
+			$this->namespace, '/' . $this->rest_base, array(
 				array(
 					'methods'             => WP_REST_Server::READABLE,
 					'callback'            => array( $this, 'get_items' ),
@@ -77,8 +76,7 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 		);
 
 		register_rest_route(
-			$this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', // @codingStandardsIgnoreLine.
-			array(
+			$this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
 				'args'   => array(
 					'id' => array(
 						'description' => __( 'Unique identifier for the resource.', 'woocommerce' ),
@@ -120,8 +118,7 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 		);
 
 		register_rest_route(
-			$this->namespace, '/' . $this->rest_base . '/batch', // @codingStandardsIgnoreLine.
-			array(
+			$this->namespace, '/' . $this->rest_base . '/batch', array(
 				array(
 					'methods'             => WP_REST_Server::EDITABLE,
 					'callback'            => array( $this, 'batch_items' ),
@@ -136,9 +133,8 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Get object.
 	 *
-	 * @param int $id Object ID.
-	 *
 	 * @since  3.0.0
+	 * @param  int $id Object ID.
 	 * @return WC_Data
 	 */
 	protected function get_object( $id ) {
@@ -148,10 +144,9 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Prepare a single product output for response.
 	 *
-	 * @param WC_Data         $object  Object data.
-	 * @param WP_REST_Request $request Request object.
-	 *
 	 * @since  3.0.0
+	 * @param  WC_Data         $object  Object data.
+	 * @param  WP_REST_Request $request Request object.
 	 * @return WP_REST_Response
 	 */
 	public function prepare_object_for_response( $object, $request ) {
@@ -189,9 +184,8 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Prepare objects query.
 	 *
-	 * @param WP_REST_Request $request Full details about the request.
-	 *
 	 * @since  3.0.0
+	 * @param  WP_REST_Request $request Full details about the request.
 	 * @return array
 	 */
 	protected function prepare_objects_query( $request ) {
@@ -323,7 +317,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * Get the downloads for a product or product variation.
 	 *
 	 * @param WC_Product|WC_Product_Variation $product Product instance.
-	 *
 	 * @return array
 	 */
 	protected function get_downloads( $product ) {
@@ -347,7 +340,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 *
 	 * @param WC_Product $product  Product instance.
 	 * @param string     $taxonomy Taxonomy slug.
-	 *
 	 * @return array
 	 */
 	protected function get_taxonomy_terms( $product, $taxonomy = 'cat' ) {
@@ -368,7 +360,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * Get the images for a product or product variation.
 	 *
 	 * @param WC_Product|WC_Product_Variation $product Product instance.
-	 *
 	 * @return array
 	 */
 	protected function get_images( $product ) {
@@ -429,10 +420,10 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Get attribute taxonomy label.
 	 *
-	 * @param string $name Taxonomy name.
-	 *
 	 * @deprecated 3.0.0
-	 * @return     string
+	 *
+	 * @param  string $name Taxonomy name.
+	 * @return string
 	 */
 	protected function get_attribute_taxonomy_label( $name ) {
 		$tax    = get_taxonomy( $name );
@@ -444,10 +435,9 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Get product attribute taxonomy name.
 	 *
-	 * @param string     $slug    Taxonomy name.
-	 * @param WC_Product $product Product data.
-	 *
 	 * @since  3.0.0
+	 * @param  string     $slug    Taxonomy name.
+	 * @param  WC_Product $product Product data.
 	 * @return string
 	 */
 	protected function get_attribute_taxonomy_name( $slug, $product ) {
@@ -473,7 +463,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * Get default attributes.
 	 *
 	 * @param WC_Product $product Product instance.
-	 *
 	 * @return array
 	 */
 	protected function get_default_attributes( $product ) {
@@ -505,7 +494,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 *
 	 * @param int   $product_id Product ID.
 	 * @param array $attribute  Attribute data.
-	 *
 	 * @return array
 	 */
 	protected function get_attribute_options( $product_id, $attribute ) {
@@ -526,7 +514,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * Get the attributes for a product or product variation.
 	 *
 	 * @param WC_Product|WC_Product_Variation $product Product instance.
-	 *
 	 * @return array
 	 */
 	protected function get_attributes( $product ) {
@@ -537,7 +524,7 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 			foreach ( $product->get_variation_attributes() as $attribute_name => $attribute ) {
 				$name = str_replace( 'attribute_', '', $attribute_name );
 
-				if ( empty( $attribute ) && '0' !== $attribute ) {
+				if ( ! $attribute ) {
 					continue;
 				}
 
@@ -579,7 +566,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * @param WC_Product $product Product instance.
 	 * @param string     $context Request context.
 	 *                            Options: 'view' and 'edit'.
-	 *
 	 * @return array
 	 */
 	protected function get_product_data( $product, $context = 'view' ) {
@@ -663,22 +649,21 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 *
 	 * @param WC_Data         $object  Object data.
 	 * @param WP_REST_Request $request Request object.
-	 *
 	 * @return array                   Links for the given post.
 	 */
 	protected function prepare_links( $object, $request ) {
 		$links = array(
 			'self'       => array(
-				'href' => rest_url( sprintf( '/%s/%s/%d', $this->namespace, $this->rest_base, $object->get_id() ) ),  // @codingStandardsIgnoreLine.
+				'href' => rest_url( sprintf( '/%s/%s/%d', $this->namespace, $this->rest_base, $object->get_id() ) ),
 			),
 			'collection' => array(
-				'href' => rest_url( sprintf( '/%s/%s', $this->namespace, $this->rest_base ) ),  // @codingStandardsIgnoreLine.
+				'href' => rest_url( sprintf( '/%s/%s', $this->namespace, $this->rest_base ) ),
 			),
 		);
 
 		if ( $object->get_parent_id() ) {
 			$links['up'] = array(
-				'href' => rest_url( sprintf( '/%s/products/%d', $this->namespace, $object->get_parent_id() ) ),  // @codingStandardsIgnoreLine.
+				'href' => rest_url( sprintf( '/%s/products/%d', $this->namespace, $object->get_parent_id() ) ),
 			);
 		}
 
@@ -688,9 +673,8 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Prepare a single product for create or update.
 	 *
-	 * @param WP_REST_Request $request Request object.
-	 * @param bool            $creating If is creating a new object.
-	 *
+	 * @param  WP_REST_Request $request Request object.
+	 * @param  bool            $creating If is creating a new object.
 	 * @return WP_Error|WC_Data
 	 */
 	protected function prepare_object_for_database( $request, $creating = false ) {
@@ -1071,10 +1055,9 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Set product images.
 	 *
+	 * @throws WC_REST_Exception REST API exceptions.
 	 * @param WC_Product $product Product instance.
 	 * @param array      $images  Images data.
-	 *
-	 * @throws WC_REST_Exception REST API exceptions.
 	 * @return WC_Product
 	 */
 	protected function set_product_images( $product, $images ) {
@@ -1153,7 +1136,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 *
 	 * @param WC_Product $product Product instance.
 	 * @param array      $data    Shipping data.
-	 *
 	 * @return WC_Product
 	 */
 	protected function save_product_shipping_data( $product, $data ) {
@@ -1199,8 +1181,7 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 *
 	 * @param WC_Product $product    Product instance.
 	 * @param array      $downloads  Downloads data.
-	 * @param int        $deprecated Deprecated since 3.0
-	 *
+	 * @param int        $deprecated Deprecated since 3.0.
 	 * @return WC_Product
 	 */
 	protected function save_downloadable_files( $product, $downloads, $deprecated = 0 ) {
@@ -1231,7 +1212,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * @param WC_Product $product  Product instance.
 	 * @param array      $terms    Terms data.
 	 * @param string     $taxonomy Taxonomy name.
-	 *
 	 * @return WC_Product
 	 */
 	protected function save_taxonomy_terms( $product, $terms, $taxonomy = 'cat' ) {
@@ -1249,10 +1229,10 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	/**
 	 * Save default attributes.
 	 *
+	 * @since 3.0.0
+	 *
 	 * @param WC_Product      $product Product instance.
 	 * @param WP_REST_Request $request Request data.
-	 *
-	 * @since  3.0.0
 	 * @return WC_Product
 	 */
 	protected function save_default_attributes( $product, $request ) {
@@ -1321,7 +1301,6 @@ class WC_REST_Products_V2_Controller extends WC_REST_Legacy_Products_Controller 
 	 * Delete a single item.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
-	 *
 	 * @return WP_REST_Response|WP_Error
 	 */
 	public function delete_item( $request ) {

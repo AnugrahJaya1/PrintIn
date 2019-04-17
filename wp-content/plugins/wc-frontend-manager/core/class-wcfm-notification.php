@@ -335,13 +335,14 @@ class WCFM_Notification {
 		
 		$notification_messages  = esc_sql( $wcfm_messages );
 		$wcfm_messages_type     = esc_sql( $wcfm_messages_type );
+		$current_time           = date( 'Y-m-d H:i:s', current_time( 'timestamp', 0 ) );
     		
 		if( apply_filters( 'wcfm_is_allow_notification_message', true, $wcfm_messages_type, $message_to ) ) {
 			
 			$wcfm_create_message     = "INSERT into {$wpdb->prefix}wcfm_messages 
-																	(`message`, `author_id`, `author_is_admin`, `author_is_vendor`, `is_notice`, `is_direct_message`, `message_to`, `message_type`)
+																	(`message`, `author_id`, `author_is_admin`, `author_is_vendor`, `is_notice`, `is_direct_message`, `message_to`, `message_type`, `created`)
 																	VALUES
-																	('{$notification_messages}', {$author_id}, {$author_is_admin}, {$author_is_vendor}, {$is_notice}, {$is_direct_message}, {$message_to}, '{$wcfm_messages_type}')";
+																	('{$notification_messages}', {$author_id}, {$author_is_admin}, {$author_is_vendor}, {$is_notice}, {$is_direct_message}, {$message_to}, '{$wcfm_messages_type}', '{$current_time}')";
 																	
 			$wpdb->query($wcfm_create_message);
 			

@@ -210,7 +210,7 @@ class WCFM_Orders_Controller {
 				
 				// Shipping Address
 				$shipping_address = '&ndash;';
-				if( ! wc_ship_to_billing_address_only() && $the_order->needs_shipping_address() && apply_filters( 'wcfm_allow_customer_shipping_details', true ) ) {
+				if( apply_filters( 'wcfm_allow_customer_shipping_details', true ) ) {
 					if ( $the_order->get_formatted_shipping_address() ) {
 						$shipping_address = wp_kses( $the_order->get_formatted_shipping_address(), array( 'br' => array() ) );
 					}

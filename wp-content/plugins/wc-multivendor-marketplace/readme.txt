@@ -7,7 +7,7 @@ Tested up to: 5.1
 WC requires at least: 3.0
 WC tested up to: 3.5.0
 Requires PHP: 5.6
-Stable tag: 2.2.7
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ The most featured and powerful multi vendor plugin for your WooCommerce Multi-ve
 
 == Description ==
 WooCommerce Multi vendor Marketplace (WCFM Marketplace) is the one-stop multi-vendor plugin that you’ve been waiting for. It has got everything from our own with [WooCommerce Frontend Manager](https://wordpress.org/plugins/wc-frontend-manager/) plus a lot more! With powerful and customized features like <strong>Flexible Commission</strong>, <strong>Refund Request</strong>, <strong>Withdrawal & Reverse Withdrawal</strong>, <strong>Single Product Multi-vendor</strong>, <strong>Ledger Book</strong>, Zone & Country Wise Vendor Shipping, Store Inquiry & Review and <strong>Stripe Split Pay</strong>. WCfM Marketplace will take your e-commerce site to another level.
+
+🎉 It will enahnce your vendor's marketplace experience to next level using <strong>FREE</stong> [Vendor Mobile APP](https://docs.wclovers.com/wcfm-app/)
 
 Experience Advanced modules like <strong>Store Invoice</strong>, <strong>Support Ticket</strong>, <strong>Shipment Tracking</strong>, Product Importer & Bulk Stock Manager along with WooCommerce Bookings, WooCommerce Appointments, WooCommerce Rental & Bookings System, WooCommerce Subscriptions and WP Job Manager compatibility using [WCFM – Ultimate](https://wclovers.com/product/woocommerce-frontend-manager-ultimate/) that will make business for your vendors easier. With steady support from our team, create and manage your e-commerce website hassle-free with the all new WCfM Marketplace!
  
@@ -65,6 +67,7 @@ You may create your own Payment Gateway as well, [developer's guide](https://wcl
 >
 > [WCFM - Ultimate](https://wclovers.com/product/woocommerce-frontend-manager-ultimate/) - optional, to have advance features
 > [WCFM - Delivery](https://wclovers.com/product/woocommerce-frontend-manager-delivery/) - optional, to enable delivery management
+> [WCFM - Affiliate](https://wclovers.com/product/woocommerce-frontend-manager-affiliate/) - option, to enable marketplace affiliate
 
 > [View Demo](http://wcfmmp.wcfmdemos.com/my-account/)
 >
@@ -147,6 +150,7 @@ If you already have a multi-vendor store setup using WC Marketplace or WC Vendor
 🔖 DHL Express/DHL Paket WooCommerce Shipping with Print Label by XAdapter
 🔖 Yoast SEO & Yoast SEO Premium
 🔖 WooCommerce Measurement Price Calculator
+🔖 WooCommerce Advanced Product Labels
 🔖 Fancy Product Designer
 🔖 FooEvents
 
@@ -213,6 +217,14 @@ NONE.
 
 
 == Changelog ==
+
+= 3.0.0 =
+*Updated - 01/04/2019* 
+
+* Feature - WCFM APP compatibility - https://docs.wclovers.com/wcfm-app/
+* Enahnce - WCFM - Affiliate addon compatibility - https://wclovers.com/product/woocommerce-frontend-manager-affiliate/
+* Fixed   - Store header long address display issue resolved
+* Fixed   - Add New vendor data save issue resolved
 
 = 2.2.7 =
 *Updated - 22/03/2019* 
@@ -767,11 +779,8 @@ NONE.
 
 == Upgrade Notice ==
 
-= 2.2.7 =
-* Enahnce - Commissiion calculation discount consider - Admin Coupon and Vendor Coupon separate setting option added
-* Enahnce - Commission rule by Vendor Sales and Product Price - percent + fixed option added
-* Enahnce - Vendor "Free shipping coupon" compatibility added
-* Enahnce - Shipping calculation "item cost including tax" option supported
-* Enahnce - Store Shipping rules widget vendor's custom shipping method title compatibility added
-* Enahnce - Store social profile display using handler option added
-* Fixed   - Store Map Location save issue resolved
+= 3.0.0 =
+* Feature - WCFM APP compatibility - https://docs.wclovers.com/wcfm-app/
+* Enahnce - WCFM - Affiliate addon compatibility - https://wclovers.com/product/woocommerce-frontend-manager-affiliate/
+* Fixed   - Store header long address display issue resolved
+* Fixed   - Add New vendor data save issue resolved

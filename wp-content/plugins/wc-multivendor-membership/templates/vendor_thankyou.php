@@ -42,11 +42,11 @@ $subscription_thankyou_content = wcfm_get_option( 'wcfm_membership_subscription_
 if( !$subscription_thankyou_content ) {
 	$subscription_thankyou_content = "<strong>Welcome,</strong>
 																		<br /><br />
-																		You have successfully subscribed to our membership plan. 
+																		You have successfully submitted your Vendor Account request. 
 																		<br /><br />
-																		Your account still under processing.
+																		Your Vendor application is still under review.
 																		<br /><br />
-																		You will receive details in mail very soon!
+																		You will receive details about our decision in your email very soon!
 																		<br /><br />
 																		Thank You";
 }

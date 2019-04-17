@@ -1121,7 +1121,8 @@ class WCFM_Library {
 	public function load_datepicker_lib() {
 	  global $WCFM, $wp_locale;
 	  wp_enqueue_script( 'jquery-ui-datepicker' );
-	  wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css', array(), $WCFM->version );
+	  wp_enqueue_style( 'jquery-ui-style', WC()->plugin_url() . '/assets/css/jquery-ui/jquery-ui.min.css', array(), WC_VERSION );
+	  //wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css', array(), $WCFM->version );
 	  
 	  $wcfm_datepicker_params = array(
 								'closeText'         => __( 'Done', 'woocommerce-events' ),

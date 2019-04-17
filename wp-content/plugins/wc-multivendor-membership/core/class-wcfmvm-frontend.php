@@ -261,8 +261,8 @@ class WCFMvm_Frontend {
 									if( !empty( $features ) && isset( $features[$membership_feature_list['feature']] ) ) $feature_val = $features[$membership_feature_list['feature']];
 									if( !$feature_val ) $feature_val = 'x';
 									?>
-									<div class="wcfm_review_plan_feature"><?php _e( $membership_feature_list['feature'], 'wc-multivendor-membership' ); ?></div>
-									<div class="wcfm_review_plan_feature_val"><?php _e( $feature_val, 'wc-multivendor-membership' ); ?></div>
+									<div class="wcfm_review_plan_feature"><?php echo wcfm_removeslashes( __( $membership_feature_list['feature'], 'wc-multivendor-membership' ) ); ?></div>
+									<div class="wcfm_review_plan_feature_val"><?php echo wcfm_removeslashes( __( $feature_val, 'wc-multivendor-membership' ) ); ?></div>
 									<?php
 								}
 							}
@@ -377,7 +377,7 @@ class WCFMvm_Frontend {
 		$wcfmvm_custom_infos = (array) get_user_meta( $vendor_id, 'wcfmvm_custom_infos', true );
 		
 		if( !empty( $wcfmvm_registration_custom_fields ) ) {
-			echo "<div style=\"margin-top: 30px;\"><h2>" . __( 'Additional Infos', 'wc-multivendor-membership' ) . "</h2><div class=\"wcfm_clearfix\"></div>";
+			echo "<div style=\"margin-top: 30px;\"><h2>" . __( 'Additional Info', 'wc-multivendor-membership' ) . "</h2><div class=\"wcfm_clearfix\"></div>";
 			foreach( $wcfmvm_registration_custom_fields as $wcfmvm_registration_custom_field ) {
 				if( !isset( $wcfmvm_registration_custom_field['enable'] ) ) continue;
 				if( !$wcfmvm_registration_custom_field['label'] ) continue;
@@ -546,8 +546,8 @@ class WCFMvm_Frontend {
 											if( !empty( $features ) && isset( $features[$membership_feature_list['feature']] ) ) $feature_val = $features[$membership_feature_list['feature']];
 											if( !$feature_val ) $feature_val = 'x';
 											?>
-											<div class="wcfm_review_plan_feature"><?php _e( $membership_feature_list['feature'], 'wc-multivendor-membership' ); ?></div>
-											<div class="wcfm_review_plan_feature_val"><?php _e( $feature_val, 'wc-multivendor-membership' ); ?></div>
+											<div class="wcfm_review_plan_feature"><?php echo wcfm_removeslashes( __( $membership_feature_list['feature'], 'wc-multivendor-membership' ) ); ?></div>
+											<div class="wcfm_review_plan_feature_val"><?php echo wcfm_removeslashes( __( $feature_val, 'wc-multivendor-membership' ) ); ?></div>
 											<?php
 										}
 									}
@@ -655,7 +655,7 @@ class WCFMvm_Frontend {
 				$wcfmvm_custom_infos = (array) get_user_meta( $vendor_id, 'wcfmvm_custom_infos', true );
 				
 				if( !empty( $wcfmvm_registration_custom_fields ) ) {
-					echo "<div style=\"margin-top: 30px;\"><h2>" . __( 'Additional Infos', 'wc-multivendor-membership' ) . "</h2><div class=\"wcfm_clearfix\"></div>";
+					echo "<div style=\"margin-top: 30px;\"><h2>" . __( 'Additional Info', 'wc-multivendor-membership' ) . "</h2><div class=\"wcfm_clearfix\"></div>";
 					foreach( $wcfmvm_registration_custom_fields as $wcfmvm_registration_custom_field ) {
 						if( !isset( $wcfmvm_registration_custom_field['enable'] ) ) continue;
 						if( !$wcfmvm_registration_custom_field['label'] ) continue;

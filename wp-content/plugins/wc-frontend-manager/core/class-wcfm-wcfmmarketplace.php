@@ -669,7 +669,7 @@ class WCFM_Marketplace {
 				</td>
 			</tr>
 		<?php } ?>
-		<?php if ( $get_shipping && $order->needs_shipping_address() ) { ?>
+		<?php if ( $get_shipping && $order->get_formatted_shipping_address() ) { ?>
 			<tr>
 				<th class="label" colspan="2" style="text-align:right; <?php echo $td_style; ?>"><?php _e( 'Shipping', 'wc-frontend-manager' ); ?>:</th>
 				<td class="total" style="text-align:center; <?php echo $td_style; ?>">

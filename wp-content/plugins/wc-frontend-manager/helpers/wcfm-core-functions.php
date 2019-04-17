@@ -1443,7 +1443,8 @@ function wcfm_upload_file( $file, $args = array() ) {
 	if ( is_wp_error( $file ) ) {
 		return $file;
 	}
-
+	//print_r( $file );
+	
 	if ( ! in_array( $file['type'], $allowed_mime_types, true ) ) {
 		if ( $args['file_label'] ) {
 			// translators: %1$s is the file field label; %2$s is the file type; %3$s is the list of allowed file types.

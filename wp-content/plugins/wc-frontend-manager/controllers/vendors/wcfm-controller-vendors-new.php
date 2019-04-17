@@ -120,6 +120,49 @@ class WCFM_Vendors_New_Controller {
 								$wcfm_vendor_form_data['banner'] = '';
 							}
 							
+							// List Banner
+							if(isset($wcfm_vendor_form_data['list_banner']) && !empty($wcfm_vendor_form_data['list_banner'])) {
+								$wcfm_vendor_form_data['list_banner'] = $WCFM->wcfm_get_attachment_id($wcfm_vendor_form_data['list_banner']);
+							} else {
+								$wcfm_vendor_form_data['list_banner'] = '';
+							}
+							
+							// Mobile Banner
+							if(isset($wcfm_vendor_form_data['mobile_banner']) && !empty($wcfm_vendor_form_data['banner'])) {
+								$wcfm_vendor_form_data['mobile_banner'] = $WCFM->wcfm_get_attachment_id($wcfm_vendor_form_data['mobile_banner']);
+							} else {
+								$wcfm_vendor_form_data['mobile_banner'] = '';
+							}
+							
+							// Store Hours
+							if( isset( $wcfm_vendor_form_data['wcfm_store_hours'] ) ) {
+								update_user_meta( $vendor_id, 'wcfm_vendor_store_hours', $wcfm_vendor_form_data['wcfm_store_hours'] );
+							}
+							
+							// Vacation Settings
+							if( apply_filters( 'wcfm_is_pref_vendor_vacation', true ) ) {
+								if( !isset( $wcfm_vendor_form_data['wcfm_vacation_mode'] ) ) $wcfm_vendor_form_data['wcfm_vacation_mode'] = 'no';
+								if( !isset( $wcfm_vendor_form_data['wcfm_disable_vacation_purchase'] ) ) $wcfm_vendor_form_data['wcfm_disable_vacation_purchase'] = 'no';
+								if( isset( $wcfm_vendor_form_data['wcfm_vacation_mode_msg'] ) ) {
+									wcfm_update_user_meta( $vendor_id, '_wcfm_vacation_msg', $wcfm_vendor_form_data['wcfm_vacation_mode_msg'] );
+								}
+							}
+							
+							// Save Store Address as User Meta
+							if( isset( $wcfm_vendor_form_data['address'] ) ) {
+								foreach( $wcfm_vendor_form_data['address'] as $address_field => $address_val ) {
+									update_user_meta( $vendor_id, '_wcfm_' . $address_field, $address_val );
+								}
+							}
+							
+							// Save Store GEO Location as User Meta
+							if( isset( $wcfm_vendor_form_data['geolocation'] ) ) {
+								foreach( $wcfm_vendor_form_data['geolocation'] as $address_field => $address_val ) {
+									$wcfm_vendor_form_data[$address_field] = $address_val;
+									update_user_meta( $vendor_id, '_wcfm_' . $address_field, $address_val );
+								}
+							}
+							
 							// sanitize html editor content
 							if( apply_filters( 'wcfm_is_allow_store_description', true ) ) {
 								if( isset( $_POST['profile'] ) && !empty( $_POST['profile'] ) ) {

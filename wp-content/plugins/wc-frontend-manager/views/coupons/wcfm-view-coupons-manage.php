@@ -24,6 +24,7 @@ $expiry_date = '';
 
 if( isset( $wp->query_vars['wcfm-coupons-manage'] ) && !empty( $wp->query_vars['wcfm-coupons-manage'] ) ) {
 	$coupon_post = get_post( $wp->query_vars['wcfm-coupons-manage'] );
+	
 	if( $coupon_post->post_status == 'publish' ) {
 		if( !current_user_can( 'edit_published_shop_coupons' ) || !apply_filters( 'wcfm_is_allow_edit_coupons', true ) ) {
 			wcfm_restriction_message_show( "Edit Coupon" );
@@ -33,8 +34,13 @@ if( isset( $wp->query_vars['wcfm-coupons-manage'] ) && !empty( $wp->query_vars['
 	// Fetching Coupon Data
 	if($coupon_post && !empty($coupon_post)) {
 		$coupon_id = $wp->query_vars['wcfm-coupons-manage'];
-		$wcfm_coupons_single = get_post( $coupon_id );
+		$wcfm_coupons_single = $coupon_post;
 		$wc_coupon = new WC_Coupon( $coupon_id );
+		
+		if( !is_a( $wc_coupon, 'WC_Coupon' ) ) {
+			wcfm_restriction_message_show( "Invalid Coupon" );
+			return;
+		}
 		
 		$title         = $coupon_post->post_title;
 		$description   = $coupon_post->post_excerpt;
@@ -42,6 +48,9 @@ if( isset( $wp->query_vars['wcfm-coupons-manage'] ) && !empty( $wp->query_vars['
 		$coupon_amount = $wc_coupon->get_amount();
 		$free_shipping = ( get_post_meta( $coupon_id, 'free_shipping', true) == 'yes' ) ? 'enable' : '';
 		$expiry_date   = $wc_coupon->get_date_expires() ? $wc_coupon->get_date_expires()->date( 'Y-m-d' ) : '';
+	} else {
+		wcfm_restriction_message_show( "Invalid Coupon" );
+		return;
 	}
 }
 

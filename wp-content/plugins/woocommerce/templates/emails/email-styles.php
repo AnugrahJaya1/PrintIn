@@ -20,17 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Load colors.
-$bg        = get_option( 'woocommerce_email_background_color' );
-$body      = get_option( 'woocommerce_email_body_background_color' );
-$base      = get_option( 'woocommerce_email_base_color' );
-$base_text = wc_light_or_dark( $base, '#202020', '#ffffff' );
-$text      = get_option( 'woocommerce_email_text_color' );
+$bg              = get_option( 'woocommerce_email_background_color' );
+$body            = get_option( 'woocommerce_email_body_background_color' );
+$base            = get_option( 'woocommerce_email_base_color' );
+$base_text       = wc_light_or_dark( $base, '#202020', '#ffffff' );
+$text            = get_option( 'woocommerce_email_text_color' );
 
 // Pick a contrasting color for links.
-$link_color = wc_hex_is_light( $base ) ? $base : $base_text;
-
+$link = wc_hex_is_light( $base ) ? $base : $base_text;
 if ( wc_hex_is_light( $body ) ) {
-	$link_color = wc_hex_is_light( $base ) ? $base_text : $base;
+	$link = wc_hex_is_light( $base ) ? $base_text : $base;
 }
 
 $bg_darker_10    = wc_hex_darker( $bg, 10 );
@@ -40,12 +39,7 @@ $base_lighter_40 = wc_hex_lighter( $base, 40 );
 $text_lighter_20 = wc_hex_lighter( $text, 20 );
 
 // !important; is a gmail hack to prevent styles being stripped if it doesn't like something.
-// body{padding: 0;} ensures proper scale/positioning of the email in the iOS native email app.
 ?>
-body {
-	padding: 0;
-}
-
 #wrapper {
 	background-color: <?php echo esc_attr( $bg ); ?>;
 	margin: 0;
@@ -143,7 +137,7 @@ body {
 }
 
 .address {
-	padding: 12px;
+	padding:12px 12px 0;
 	color: <?php echo esc_attr( $text_lighter_20 ); ?>;
 	border: 1px solid <?php echo esc_attr( $body_darker_10 ); ?>;
 }
@@ -196,7 +190,7 @@ h3 {
 }
 
 a {
-	color: <?php echo esc_attr( $link_color ); ?>;
+	color: <?php echo esc_attr( $link ); ?>;
 	font-weight: normal;
 	text-decoration: underline;
 }

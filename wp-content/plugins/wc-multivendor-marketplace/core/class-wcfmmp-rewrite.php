@@ -13,13 +13,13 @@ class WCFMmp_Rewrites {
 
 	public $query_vars = array();
 	public $wcfm_store_url = '';
-
+	
 	/**
 	 * Hook into the functions
 	 */
 	public function __construct() {
 		$this->wcfm_store_url = get_option( 'wcfm_store_url', 'store' );
-
+		
 		add_action( 'init', array( $this, 'register_rule' ), 9 );
 		
 		add_action( 'init', array( $this, 'custom_taxonomy_register_rule' ), 11 );
@@ -290,12 +290,15 @@ class WCFMmp_Rewrites {
 			return $template;
 		}
 		
+		if( $WCFMmp->store_template_loaded ) return $template;
+		
 		$store_name = get_query_var( $this->wcfm_store_url );
 
 		if ( !empty( $store_name ) ) {
 			$store_user = get_user_by( 'slug', $store_name );
 			
 			remove_filter( 'template_include', array( 'WC_Template_Loader', 'template_loader' ) );
+			$WCFMmp->store_template_loaded = true;
 			
 			// no user found
 			if ( ! $store_user ) {

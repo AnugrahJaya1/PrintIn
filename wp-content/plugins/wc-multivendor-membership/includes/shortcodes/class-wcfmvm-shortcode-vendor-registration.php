@@ -30,7 +30,7 @@ class WCFM_Vendor_Registration_Shortcode {
 		
 		if ( isset( $wp->query_vars['page'] ) || is_wcfm_registration_page() ) {
 			echo "<h2>" . __( "Registration", "wc-multivendor-membership" ) . "</h2>";
-			if( !wcfm_is_vendor() && ( wcfm_is_allowed_membership() || current_user_can( 'administrator' ) ) ) {
+			if( !wcfm_is_vendor() && ( wcfm_is_allowed_membership() || current_user_can( 'administrator' ) || current_user_can( 'shop_manager' ) ) ) {
 				$application_status = '';
 				if( is_user_logged_in() ) {
 					$member_id = apply_filters( 'wcfm_current_vendor_id', get_current_user_id() );

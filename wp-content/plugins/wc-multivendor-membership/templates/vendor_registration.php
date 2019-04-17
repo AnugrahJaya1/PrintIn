@@ -231,9 +231,9 @@ $wcfmvm_registration_custom_fields = get_option( 'wcfmvm_registration_custom_fie
 																																			"addr_1" => array('label' => __('Address 1', 'wc-frontend-manager') , 'type' => 'text', 'name' => $field_name . '[addr_1]', 'custom_attributes' => array( 'required' => 1 ), 'class' => 'wcfm-text wcfm_ele', 'label_class' => 'wcfm_title wcfm_ele', 'value' => isset($field_value['addr_1']) ? $field_value['addr_1'] : '' ),
 																																			"addr_2" => array('label' => __('Address 2', 'wc-frontend-manager') , 'type' => 'text', 'name' => $field_name . '[addr_2]', 'class' => 'wcfm-text wcfm_ele', 'label_class' => 'wcfm_title wcfm_ele', 'value' => isset($field_value['addr_2']) ? $field_value['addr_2'] : '' ),
 																																			"country" => array('label' => __('Country', 'wc-frontend-manager') , 'type' => 'country', 'name' => $field_name . '[country]', 'custom_attributes' => array( 'required' => 1 ), 'class' => 'wcfm-select wcfm_ele wcfmvm_country_to_select', 'label_class' => 'wcfm_title wcfm_ele', 'attributes' => array( 'style' => 'width: 60%;' ), 'value' => isset($field_value['country']) ? $field_value['country'] : '' ),
-																																			"zip" => array('label' => __('Postcode/Zip', 'wc-frontend-manager') , 'type' => 'text', 'name' => $field_name . '[zip]', 'custom_attributes' => array( 'required' => 1 ), 'class' => 'wcfm-text wcfm_ele', 'label_class' => 'wcfm_title wcfm_ele', 'value' => isset($field_value['zip']) ? $field_value['zip'] : '' ),
 																																			"city" => array('label' => __('City/Town', 'wc-frontend-manager') , 'type' => 'text', 'name' => $field_name . '[city]', 'class' => 'wcfm-text wcfm_ele', 'label_class' => 'wcfm_title wcfm_ele', 'value' => isset($field_value['city']) ? $field_value['city'] : '' ),
 																																			"state" => array('label' => __('State/County', 'wc-frontend-manager') , 'type' => 'select', 'name' => $field_name . '[state]', 'class' => 'wcfm-select wcfm_ele wcfmvm_state_to_select', 'label_class' => 'wcfm_title wcfm_ele', 'options' => isset($field_value['state']) ? array($field_value['state'] => $field_value['state']) : array(), 'value' => isset($field_value['state']) ? $field_value['state'] : '' ),
+																																			"zip" => array('label' => __('Postcode/Zip', 'wc-frontend-manager') , 'type' => 'text', 'name' => $field_name . '[zip]', 'custom_attributes' => array( 'required' => 1 ), 'class' => 'wcfm-text wcfm_ele', 'label_class' => 'wcfm_title wcfm_ele', 'value' => isset($field_value['zip']) ? $field_value['zip'] : '' ),
 																																			) ) );
 								break;
 								
@@ -273,6 +273,7 @@ $wcfmvm_registration_custom_fields = get_option( 'wcfmvm_registration_custom_fie
 							$field_value = '';
 							$wcfmvm_registration_custom_field['name'] = sanitize_title( $wcfmvm_registration_custom_field['label'] );
 							$field_name = 'wcfmvm_custom_infos[' . $wcfmvm_registration_custom_field['name'] . ']';
+							$field_id   = md5( $field_name );
 						
 							if( !empty( $wcfmvm_custom_infos ) ) {
 								if( $wcfmvm_registration_custom_field['type'] == 'checkbox' ) {
@@ -288,44 +289,50 @@ $wcfmvm_registration_custom_fields = get_option( 'wcfmvm_registration_custom_fie
 								
 							switch( $wcfmvm_registration_custom_field['type'] ) {
 								case 'text':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'text', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'text', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'number':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'number', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'number', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'textarea':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'textarea', 'class' => 'wcfm-textarea', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'textarea', 'class' => 'wcfm-textarea', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'datepicker':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'text', 'placeholder' => 'YYYY-MM-DD', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'text', 'placeholder' => 'YYYY-MM-DD', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'timepicker':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'time', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'time', 'class' => 'wcfm-text', 'label_class' => 'wcfm_title', 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'checkbox':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'checkbox', 'class' => 'wcfm-checkbox', 'label_class' => 'wcfm_title checkbox-title', 'value' => 'yes', 'dfvalue' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'checkbox', 'class' => 'wcfm-checkbox', 'label_class' => 'wcfm_title checkbox-title', 'value' => 'yes', 'dfvalue' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'upload':
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'custom_attributes' => $custom_attributes, 'type' => 'file', 'class' => 'wcfm_ele', 'label_class' => 'wcfm_title', 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'custom_attributes' => $custom_attributes, 'type' => 'file', 'class' => 'wcfm_ele', 'label_class' => 'wcfm_title', 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 								
 								case 'select':
 									$select_opt_vals = array();
 									$select_options = explode( '|', $wcfmvm_registration_custom_field['options'] );
+									$is_first = true;
 									if( !empty ( $select_options ) ) {
 										foreach( $select_options as $select_option ) {
 											if( $select_option ) {
-												$select_opt_vals[$select_option] = __(ucfirst( str_replace( "-", " " , $select_option ) ), 'wc-multivendor-membership');
+												$select_opt_label = __( ucfirst( str_replace( "-", " " , $select_option ) ), 'wc-multivendor-membership' );
+												$select_opt_label = apply_filters( 'wcfm_registration_custom_field_select_label', $select_opt_label, $select_option );
+												$select_opt_vals[$select_option] = $select_opt_label;
+											} elseif( $is_first ) {
+												$select_opt_vals[''] = __( "-Select-", "wc-frontend-manager" );
 											}
+											$is_first = false;
 										}
 									}
-									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $wcfmvm_registration_custom_field['name'] => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'select', 'class' => 'wcfm-select', 'label_class' => 'wcfm_title', 'options' => $select_opt_vals, 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
+									$WCFM->wcfm_fields->wcfm_generate_form_field(  array( $field_id => array( 'label' => __($wcfmvm_registration_custom_field['label'], 'wc-multivendor-membership') , 'name' => $field_name, 'custom_attributes' => $custom_attributes, 'type' => 'select', 'class' => 'wcfm-select', 'label_class' => 'wcfm_title', 'options' => $select_opt_vals, 'value' => $field_value, 'hints' => __($wcfmvm_registration_custom_field['help_text'], 'wc-multivendor-membership') ) ) );
 								break;
 							}
 						}

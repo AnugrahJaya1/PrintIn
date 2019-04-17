@@ -503,26 +503,24 @@ $is_marketplace = wcfm_is_marketplace();
 												?>
 												<div class="clear"></div>
 												<div class="wcfmmp_stripe_connect">
-													<form action="" method="POST">
-														<table class="form-table">
-															<tbody>
-																<tr>
-																	<th style="width: 35%;">
-																		<label><?php _e('Stripe', 'wc-frontend-manager'); ?></label>
-																	</th>
-																	<td>
-																		<label><?php _e('You are connected with Stripe', 'wc-frontend-manager'); ?></label>
-																	</td>
-																</tr>
-																<tr>
-																	<th></th>
-																	<td>
-																		<input type="submit" class="button" name="disconnect_stripe" value="<?php _e( 'Disconnect Stripe Account', 'wc-frontend-manager' ); ?>" />
-																	</td>
-																</tr>
-															</tbody>
-														</table>
-													</form>
+													<table class="form-table">
+														<tbody>
+															<tr>
+																<th style="width: 35%;">
+																	<label><?php _e('Stripe', 'wc-frontend-manager'); ?></label>
+																</th>
+																<td>
+																	<label><?php _e('You are connected with Stripe', 'wc-frontend-manager'); ?></label>
+																</td>
+															</tr>
+															<tr>
+																<th></th>
+																<td>
+																	<input type="submit" class="button" name="disconnect_stripe" value="<?php _e( 'Disconnect Stripe Account', 'wc-frontend-manager' ); ?>" />
+																</td>
+															</tr>
+														</tbody>
+													</table>
 												</div>
 												<?php
 											} else {
@@ -530,20 +528,18 @@ $is_marketplace = wcfm_is_marketplace();
 												?>
 												<div class="clear"></div>
 												<div class="wcfmmp_stripe_connect">
-													<form action="" method="POST">
-														<table class="form-table">
-															<tbody>
-																<tr>
-																	<th style="width: 35%;">
-																		<label><?php _e('Stripe', 'wc-frontend-manager'); ?></label>
-																	</th>
-																	<td>
-																		<label><?php _e('Please Retry!!!', 'wc-frontend-manager'); ?></label>
-																	</td>
-																</tr>
-															</tbody>
-														</table>
-													</form>
+													<table class="form-table">
+														<tbody>
+															<tr>
+																<th style="width: 35%;">
+																	<label><?php _e('Stripe', 'wc-frontend-manager'); ?></label>
+																</th>
+																<td>
+																	<label><?php _e('Please Retry!!!', 'wc-frontend-manager'); ?></label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
 												</div>
 												<?php
 										}

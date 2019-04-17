@@ -109,8 +109,11 @@ class WC_REST_Webhooks_V2_Controller extends WC_REST_Webhooks_V1_Controller {
 					'description' => __( 'Webhook status.', 'woocommerce' ),
 					'type'        => 'string',
 					'default'     => 'active',
-					'enum'        => array_keys( wc_get_webhook_statuses() ),
+					'enum'        => array( 'active', 'paused', 'disabled' ),
 					'context'     => array( 'view', 'edit' ),
+					'arg_options' => array(
+						'sanitize_callback' => 'wc_is_webhook_valid_topic',
+					),
 				),
 				'topic'             => array(
 					'description' => __( 'Webhook topic.', 'woocommerce' ),

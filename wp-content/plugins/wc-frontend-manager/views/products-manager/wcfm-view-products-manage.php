@@ -123,6 +123,13 @@ $crosssell_ids = array();
 if( isset( $wp->query_vars['wcfm-products-manage'] ) && !empty( $wp->query_vars['wcfm-products-manage'] ) ) {
 	
 	$product = wc_get_product( $wp->query_vars['wcfm-products-manage'] );
+	
+	if( !is_a( $product, 'WC_Product' ) ) {
+		wcfm_restriction_message_show( "Invalid Product" );
+		return;
+	}
+	
+	
 	// Fetching Product Data
 	if($product && !empty($product)) {
 		$product_id = $wp->query_vars['wcfm-products-manage'];

@@ -7,7 +7,7 @@ Tested up to: 5.1
 WC requires at least: 3.0
 WC tested up to: 3.5.0
 Requires PHP: 5.6
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -155,6 +155,17 @@ NONE.
 17. Membership Details - Cancel & Upgrade
 
 == Changelog ==
+
+= 2.4.2 =
+*Updated - 01/04/2019*
+
+* Enahnce - WCFM - Affiliate addon compatibility - https://wclovers.com/product/woocommerce-frontend-manager-affiliate/
+* Tweak   - Membership table default colors changed
+* Fixed   - Membership features help text mobile issue resolved
+* Fixed   - Registration form file upload issue resolved
+* Fixed   - Vendor profile custom field edit issue resolved
+* Fixed   - Email content grammatical mistakes resolved
+* Fixed   - Plan page slash display issue resolved
 
 = 2.4.1 =
 *Updated - 27/02/2019*
@@ -454,5 +465,11 @@ NONE.
 
 == Upgrade Notice ==
 
-= 2.4.1 =
-* Tweak   - Font Awesome old version compatibility added (Please refresh site caches after update)
+= 2.4.2 =
+* Enahnce - WCFM - Affiliate addon compatibility - https://wclovers.com/product/woocommerce-frontend-manager-affiliate/
+* Tweak   - Membership table default colors changed
+* Fixed   - Membership features help text mobile issue resolved
+* Fixed   - Registration form file upload issue resolved
+* Fixed   - Vendor profile custom field edit issue resolved
+* Fixed   - Email content grammatical mistakes resolved
+* Fixed   - Plan page slash display issue resolved

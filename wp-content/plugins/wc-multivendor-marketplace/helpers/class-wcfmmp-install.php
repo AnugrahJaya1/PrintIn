@@ -174,54 +174,6 @@ class WCFMmp_Install {
 															PRIMARY KEY (`ID`)
 															) $collate;";
 															
-		$create_tables_query[] = "CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "wcfm_marketplace_affiliate_orders` (
-															`ID` bigint(20) NOT NULL AUTO_INCREMENT,
-															`vendor_id` bigint(20) NOT NULL,
-															`order_id` bigint(20) NOT NULL,
-															`order_commission_id` bigint(20) NOT NULL default 0,
-															`customer_id` bigint(20) NOT NULL,
-															`payment_method` varchar(255) NOT NULL,
-															`product_id` bigint(20) NOT NULL,
-															`variation_id` bigint(20) NOT NULL DEFAULT 0,
-															`quantity` bigint(20) NOT NULL DEFAULT 1,
-															`product_price` varchar(255) NULL DEFAULT 0,
-															`purchase_price` varchar(20) NOT NULL DEFAULT 0,
-															`item_id` bigint(20) NOT NULL,
-															`item_type` varchar(255) NULL,
-															`item_sub_total` varchar(255) NULL DEFAULT 0,
-															`item_total` varchar(255) NULL DEFAULT 0,
-															`shipping` varchar(255) NOT NULL DEFAULT 0,
-															`tax` varchar(255) NOT NULL DEFAULT 0,
-															`shipping_tax_amount` varchar(255) NOT NULL DEFAULT 0,
-															`commission_amount` varchar(255) NOT NULL DEFAULT 0,
-															`withdrawal_id` bigint(20) NOT NULL DEFAULT 0,
-															`refunded_id` bigint(20) NOT NULL DEFAULT 0,
-															`refunded_amount` varchar(255) NOT NULL DEFAULT 0,
-															`withdraw_charges` varchar(255) NOT NULL DEFAULT 0,
-															`total_commission` varchar(255) NOT NULL DEFAULT 0,
-															`order_status` varchar(255) NOT NULL,
-															`commission_status` varchar(100) NOT NULL DEFAULT 'pending',
-															`withdraw_status` varchar(100) NOT NULL DEFAULT 'pending',
-															`refund_status` varchar(100) NOT NULL DEFAULT 'pending',
-															`is_refunded` tinyint(1) NOT NULL default 0,
-															`is_partially_refunded` tinyint(1) NOT NULL default 0,
-															`is_withdrawable` tinyint(1) NOT NULL default 0,
-															`is_auto_withdrawal` tinyint(1) NOT NULL default 0,
-															`is_trashed` tinyint(1) NOT NULL default 0,			
-															`commission_paid_date` timestamp NULL,
-															`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,				
-															PRIMARY KEY (`ID`),
-															CONSTRAINT marketplace_affiliate_orders UNIQUE (order_id, vendor_id, item_id)
-															) $collate;";
-															
-		$create_tables_query[] = "CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "wcfm_marketplace_affiliate_orders_meta` (
-															`ID` bigint(20) NOT NULL AUTO_INCREMENT,
-															`order_affiliate_id` bigint(20) NOT NULL default 0,
-															`key` VARCHAR(200) NOT NULL,
-															`value` longtext NOT NULL,
-															PRIMARY KEY (`ID`)
-															) $collate;";
-															
 		$create_tables_query[] = "CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "wcfm_marketplace_withdraw_request` (
 															`ID` bigint(20) NOT NULL AUTO_INCREMENT,
 															`vendor_id` bigint(20) NOT NULL,
@@ -385,6 +337,14 @@ class WCFMmp_Install {
 	public static function wcfmmp_user_role() {
 
 		add_role('wcfm_vendor', apply_filters('wcfm_vendor_role', __('Store Vendor', 'wc-multivendor-marketplace')), array(
+			  'level_6'                	      => true,
+				'level_5'                	      => true,
+				'level_4'                	      => true,
+				'level_3'                	      => true,
+				'level_2'                	      => true,
+				'level_1'                	      => true,
+				'level_0'                	      => true, 
+				
 				'read'                          => true,
 				'edit_post'                     => true,
 				'edit_posts'                    => true,

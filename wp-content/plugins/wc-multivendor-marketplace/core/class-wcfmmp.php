@@ -59,6 +59,7 @@ class WCFMmp {
 	public $wcfmmp_notification_options;
 	public $wcfmmp_store_endpoints;
 	public $head_titlse_set = false;
+	public $store_template_loaded = false;
 
 	public function __construct($file) {
 

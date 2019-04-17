@@ -77,24 +77,35 @@ class WCFMvm_Memberships_Registration_Controller {
 			die;
 		}
 		
+		// WCFM form custom validation filter
+		$custom_validation_results = apply_filters( 'wcfm_form_custom_validation', $wcfm_membership_registration_form_data, 'vendor_registration' );
+		if(isset($custom_validation_results['has_error']) && !empty($custom_validation_results['has_error'])) {
+			$custom_validation_error = __( 'There has some error in submitted data.', 'wc-frontend-manager' );
+			if( isset( $custom_validation_results['message'] ) && !empty( $custom_validation_results['message'] ) ) { $custom_validation_error = $custom_validation_results['message']; }
+			echo '{"status": false, "message": "' . $custom_validation_error . '"}';
+			die;
+		}
+		
 		// Handle File Uploads - 2.3.0
 		$files_data = array();
 		if ( ! empty( $_FILES ) ) {
 			foreach ( $_FILES as $file_key => $file ) {
 				$files_to_upload = wcfm_prepare_uploaded_files( $file );
-				foreach ( $files_to_upload as $file_to_upload ) {
-					$uploaded_file = wcfm_upload_file(
-						$file_to_upload,
-						array(
-							'file_key' => $file_key,
-						)
-					);
-		
-					if ( is_wp_error( $uploaded_file ) ) {
-						echo '{"status": false, "message": "' . $uploaded_file->get_error_message() . '"}';
-						die;
-					} else {
-						$files_data[$file_key] = $uploaded_file->url;
+				if( !empty( $files_to_upload ) ) {
+					foreach ( $files_to_upload as $file_to_upload ) {
+						$uploaded_file = wcfm_upload_file(
+							$file_to_upload,
+							array(
+								'file_key' => $file_key,
+							)
+						);
+			
+						if ( is_wp_error( $uploaded_file ) ) {
+							echo '{"status": false, "message": "' . $uploaded_file->get_error_message() . '"}';
+							die;
+						} else {
+							$files_data[$file_key] = $uploaded_file->url;
+						}
 					}
 				}
 			}

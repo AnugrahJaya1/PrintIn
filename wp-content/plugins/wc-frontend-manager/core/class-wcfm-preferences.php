@@ -60,6 +60,8 @@ class WCFM_Preferences {
 		// Delivery
 		add_filter( 'wcfm_is_pref_delivery', array( &$this, 'wcfmpref_delivery' ), 750 );
 		
+		// Affiliate
+		add_filter( 'wcfm_is_pref_affiliate', array( &$this, 'wcfmpref_affiliate' ), 750 );
 	}
 	
 	// Pay for Product
@@ -250,6 +252,13 @@ class WCFM_Preferences {
   function wcfmpref_delivery( $is_pref ) {
   	$delivery = ( isset( $this->wcfm_module_options['delivery'] ) ) ? $this->wcfm_module_options['delivery'] : 'no';
   	if( $delivery == 'yes' ) $is_pref = false;
+  	return $is_pref;
+  }
+  
+  // Affiliate
+  function wcfmpref_affiliate( $is_pref ) {
+  	$affiliate = ( isset( $this->wcfm_module_options['affiliate'] ) ) ? $this->wcfm_module_options['affiliate'] : 'no';
+  	if( $affiliate == 'yes' ) $is_pref = false;
   	return $is_pref;
   }
   

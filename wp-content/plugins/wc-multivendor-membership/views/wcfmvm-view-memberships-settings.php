@@ -187,11 +187,11 @@ $subscription_thankyou_content = wcfm_get_option( 'wcfm_membership_subscription_
 if( !$subscription_thankyou_content ) {
 	$subscription_thankyou_content = "<strong>Welcome,</strong>
 																		<br /><br />
-																		You have successfully subscribed to our membership plan. 
+																		You have successfully submitted your Vendor Account request. 
 																		<br /><br />
-																		Your account still under processing.
+																		Your Vendor application is still under review.
 																		<br /><br />
-																		You will receive details in mail very soon!
+																		You will receive details about our decision in your email very soon!
 																		<br /><br />
 																		Thank You";
 }
@@ -201,9 +201,9 @@ $non_membership_welcome_email_content = wcfm_get_option( 'wcfm_non_membership_we
 if( !$non_membership_welcome_email_content ) {
 	$non_membership_welcome_email_content = "Dear {first_name},
 																<br /><br />
-																You have successfully registered as a vendor to our marketplace. 
+																You have successfully registered as a vendor for <b>{site_name}</b>.
 																<br /><br />
-																Your account has been setup and ready to be configured.
+																Your account has been setup and it is ready to be configured.
 																<br /><br />
 																Kindly follow the link below to visit your dashboard and start selling.
 																<br /><br />
@@ -217,9 +217,9 @@ $subscription_welcome_email_content = wcfm_get_option( 'wcfm_membership_subscrip
 if( !$subscription_welcome_email_content ) {
 	$subscription_welcome_email_content = "Dear {first_name},
 																<br /><br />
-																You have successfully subscribed to our membership plan. 
+																You have successfully registered as a vendor for <b>{site_name}</b>.
 																<br /><br />
-																Your account has been setup and ready to be configured.
+																Your account has been setup and it is ready to be configured.
 																<br /><br />
 																{plan_details}
 																<br /><br />

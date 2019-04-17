@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Multivendor Marketplace\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-26 17:16+0000\n"
+"POT-Creation-Date: 2019-03-31 16:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -1397,7 +1397,7 @@ msgstr ""
 msgid "Vendor Ledger"
 msgstr ""
 
-#: helpers/class-wcfmmp-install.php:387
+#: helpers/class-wcfmmp-install.php:339
 msgid "Store Vendor"
 msgstr ""
 
@@ -2385,11 +2385,11 @@ msgstr ""
 msgid "Telephone:"
 msgstr ""
 
-#: views/emails/store-new-order.php:432 views/emails/plain/store-new-order.php:432
+#: views/emails/store-new-order.php:437 views/emails/plain/store-new-order.php:432
 msgid "Billing address"
 msgstr ""
 
-#: views/emails/store-new-order.php:441 views/emails/plain/store-new-order.php:441
+#: views/emails/store-new-order.php:446 views/emails/plain/store-new-order.php:441
 msgid "Shipping address"
 msgstr ""
 
@@ -2917,7 +2917,7 @@ msgid "All Categories"
 msgstr ""
 
 #: views/store/widgets/wcfmmp-view-store-shipping-rules.php:29
-msgid " Shipping Rules:"
+msgid "Shipping Rules:"
 msgstr ""
 
 #: views/store/widgets/wcfmmp-view-store-shipping-rules.php:45

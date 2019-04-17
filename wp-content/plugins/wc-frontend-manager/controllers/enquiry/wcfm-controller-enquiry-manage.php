@@ -74,6 +74,18 @@ class WCFM_Enquiry_Manage_Controller {
 																	`ID` = {$inquiry_id}";
 																
 				$wpdb->query($wcfm_update_enquiry);
+			} else {
+				$replied = date('Y-m-d H:i:s');
+				
+				$wcfm_update_enquiry    = "UPDATE {$wpdb->prefix}wcfm_enquiries 
+																	SET 
+																	`reply` = '{$inquiry_reply}',
+																	`reply_by` = {$inquiry_reply_by},
+																	`replied` = '{$replied}'
+																	WHERE 
+																	`ID` = {$inquiry_id}";
+																
+				$wpdb->query($wcfm_update_enquiry);
 			}
 		
 			// Send mail to customer

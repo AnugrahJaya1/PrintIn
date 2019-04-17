@@ -40,6 +40,11 @@ if( wcfm_is_vendor() ) {
 
 $theorder = wc_get_order( $order_id );
 
+if( !is_a( $theorder, 'WC_Order' ) ) {
+	wcfm_restriction_message_show( "Invalid Order" );
+	return;
+}
+
 if( !$theorder ) return;
 
 $post = get_post($order_id);
@@ -330,7 +335,7 @@ do_action( 'before_wcfm_orders_details', $order_id );
 											// Display values
 											echo '<div class="address">';
 											
-												if( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && apply_filters( 'wcfm_allow_customer_shipping_details', true ) ) {
+												if( apply_filters( 'wcfm_allow_customer_shipping_details', true ) ) {
 													if ( $order->get_formatted_shipping_address() ) {
 														echo '<p>' . wp_kses( $order->get_formatted_shipping_address(), array( 'br' => array() ) ) . '</p>';
 													} else {
@@ -813,7 +818,7 @@ do_action( 'before_wcfm_orders_details', $order_id );
 				
 						<?php do_action( 'woocommerce_admin_order_totals_after_discount', $order->get_id() ); ?>
 				
-						<?php if( apply_filters( 'wcfm_order_details_shipping_line_item', true ) && apply_filters( 'wcfm_order_details_shipping_total', true ) && $order->needs_shipping_address() ) { ?>
+						<?php if( apply_filters( 'wcfm_order_details_shipping_line_item', true ) && apply_filters( 'wcfm_order_details_shipping_total', true ) && $order->get_formatted_shipping_address() ) { ?>
 							<tr>
 								<th class="label"><span class="wcfmfa fa-question no_mob img_tip" data-tip="<?php _e( 'This is the shipping and handling total costs for the order.', 'wc-frontend-manager' ) ; ?>"></span> <?php _e( 'Shipping', 'wc-frontend-manager' ); ?>:</th>
 								<td width="1%"></td>

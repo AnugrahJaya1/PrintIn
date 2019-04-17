@@ -56,7 +56,7 @@ jQuery( function( $ ) {
 		var wc_country_select_select2 = function() {
 			$( 'select.country_select:visible, select.state_select:visible' ).each( function() {
 				var select2_args = $.extend({
-					placeholder: $( this ).attr( 'data-placeholder' ) || $( this ).attr( 'placeholder' ) || '',
+					placeholderOption: 'first',
 					width: '100%'
 				}, getEnhancedSelectFormatString() );
 
@@ -93,73 +93,53 @@ jQuery( function( $ ) {
 			input_name  = $statebox.attr( 'name' ),
 			input_id    = $statebox.attr( 'id' ),
 			value       = $statebox.val(),
-			placeholder = $statebox.attr( 'placeholder' ) || $statebox.attr( 'data-placeholder' ) || '',
-			$newstate;
+			placeholder = $statebox.attr( 'placeholder' ) || $statebox.attr( 'data-placeholder' ) || '';
 
 		if ( states[ country ] ) {
 			if ( $.isEmptyObject( states[ country ] ) ) {
-				$newstate = $( '<input type="hidden" />' )
-					.prop( 'id', input_id )
-					.prop( 'name', input_name )
-					.prop( 'placeholder', placeholder )
-					.addClass( 'hidden' );
-				$parent.hide().find( '.select2-container' ).remove();
-				$statebox.replaceWith( $newstate );
+
+				$statebox.closest( 'p.form-row' ).hide().find( '.select2-container' ).remove();
+				$statebox.replaceWith( '<input type="hidden" class="hidden" name="' + input_name + '" id="' + input_id + '" value="" placeholder="' + placeholder + '" />' );
+
 				$( document.body ).trigger( 'country_to_state_changed', [ country, $wrapper ] );
 
 			} else {
-				var state          = states[ country ],
-					$defaultOption = $( '<option value=""></option>' ).text( wc_country_select_params.i18n_select_state_text );
+
+				var options = '',
+					state = states[ country ];
+
+				for( var index in state ) {
+					if ( state.hasOwnProperty( index ) ) {
+						options = options + '<option value="' + index + '">' + state[ index ] + '</option>';
+					}
+				}
 
 				$statebox.closest( 'p.form-row' ).show();
 
 				if ( $statebox.is( 'input' ) ) {
-					$newstate = $( '<select></select>' )
-						.prop( 'id', input_id )
-						.prop( 'name', input_name )
-						.data( 'placeholder', placeholder )
-						.addClass( 'state_select' );
-					$statebox.replaceWith( $newstate );
+					// Change for select
+					$statebox.replaceWith( '<select name="' + input_name + '" id="' + input_id + '" class="state_select" data-placeholder="' + placeholder + '"></select>' );
 					$statebox = $wrapper.find( '#billing_state, #shipping_state, #calc_shipping_state' );
 				}
 
-				$statebox.empty().append( $defaultOption );
-
-				$.each( state, function( index ) {
-					var $option = $( '<option></option>' )
-						.prop( 'value', index )
-						.text( state[ index ] );
-					$statebox.append( $option );
-				} );
-
+				$statebox.html( '<option value="">' + wc_country_select_params.i18n_select_state_text + '</option>' + options );
 				$statebox.val( value ).change();
 
 				$( document.body ).trigger( 'country_to_state_changed', [country, $wrapper ] );
 
 			}
 		} else {
-			if ( $statebox.is( 'select, input[type="hidden"]' ) ) {
-				$newstate = $( '<input type="text" />' )
-					.prop( 'id', input_id )
-					.prop( 'name', input_name )
-					.prop( 'placeholder', placeholder )
-					.addClass( 'input-text' );
+			if ( $statebox.is( 'select' ) ) {
+
 				$parent.show().find( '.select2-container' ).remove();
-				$statebox.replaceWith( $newstate );
+				$statebox.replaceWith( '<input type="text" class="input-text" name="' + input_name + '" id="' + input_id + '" placeholder="' + placeholder + '" />' );
+
 				$( document.body ).trigger( 'country_to_state_changed', [country, $wrapper ] );
 
 			} else if ( $statebox.is( 'input[type="hidden"]' ) ) {
 
 				$parent.show().find( '.select2-container' ).remove();
-				$statebox.replaceWith(
-					'<input type="text" class="input-text" name="' +
-					input_name +
-					'" id="' +
-					input_id +
-					'" placeholder="' +
-					placeholder +
-					'" />'
-				);
+				$statebox.replaceWith( '<input type="text" class="input-text" name="' + input_name + '" id="' + input_id + '" placeholder="' + placeholder + '" />' );
 
 				$( document.body ).trigger( 'country_to_state_changed', [country, $wrapper ] );
 
@@ -168,26 +148,6 @@ jQuery( function( $ ) {
 
 		$( document.body ).trigger( 'country_to_state_changing', [country, $wrapper ] );
 
-	});
-
-	$( document.body ).on( 'wc_address_i18n_ready', function() {
-		// Init country selects with their default value once the page loads.
-		$('.woocommerce-billing-fields, .woocommerce-shipping-fields, .woocommerce-shipping-calculator').each( function() {
-			var $wrapper       = $( this ),
-				$country_input = $wrapper.find( '#billing_country, #shipping_country, #calc_shipping_country' );
-
-			if ( 0 === $country_input.length ) {
-				return;
-			}
-
-			var country = $country_input.val();
-
-			if ( 0 === country.length ) {
-				return;
-			}
-
-			$( document.body ).trigger( 'country_to_state_changing', [country, $wrapper ] );
-		});
 	});
 
 });
